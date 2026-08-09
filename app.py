@@ -324,10 +324,9 @@ def health():
     })
 
 
-# Home page
-@app.route("/")
-def home():
-    return render_template("drfront.html")
+@app.route("/dr_ai_chat")
+def dr_ai_chat():
+    return render_template("dr_ai_chat.html")
 
 
 load_models()
