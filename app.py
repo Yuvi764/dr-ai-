@@ -62,7 +62,7 @@ def load_models():
     # ── Skin CNN (optional) ──
     try:
         from tensorflow.keras.models import load_model as lm
-        skin_model = lm("D:/Dr_AI/Dr_Yogi/skin_disease_model.h5", compile=False)
+        skin_model = lm("skin_disease_model.h5", compile=False)
         print("  ✅ skin_disease_model.h5 loaded  (EfficientNetB0)")
     except Exception:
         print("  ℹ️  Skin model not found — upload analysis disabled")
@@ -324,11 +324,16 @@ def health():
     })
 
 
-if __name__ == "__main__":
-    load_models()
-    print("\n━━━ Dr. AI server ready ━━━")
-    print("  http://localhost:5000\n")
-    app.run(host="0.0.0.0", port=5000, debug=True)
+# Home page
 @app.route("/")
 def home():
     return render_template("drfront.html")
+
+
+load_models()
+
+
+if __name__ == "__main__":
+    print("\n━━━ Dr. AI server ready ━━━")
+    print("  http://localhost:5000\n")
+    app.run(host="0.0.0.0", port=5000, debug=True)
