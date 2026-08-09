@@ -330,11 +330,10 @@ def home():
     return render_template("drfront.html")
 
 
-# Dr AI Chat page
 @app.route("/dr_ai_chat")
+@app.route("/dr_ai_chat.html")
 def dr_ai_chat():
     return render_template("dr_ai_chat.html")
-
 
 # Load models
 load_models()
