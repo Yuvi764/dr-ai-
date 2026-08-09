@@ -886,11 +886,11 @@ body {
 .rank-3 .confidence-fill { background: var(--accent-2); }
 
 /* =========================================================
-   MOBILE RESPONSIVE
-   Keeps the original Dr. AI theme and design
+   PERFECT MOBILE RESPONSIVE
+   Original theme/design preserved
    ========================================================= */
 
-/* ---------- TABLET ---------- */
+/* TABLET */
 @media (max-width: 900px) {
 
     .sidebar {
@@ -919,42 +919,68 @@ body {
 /* =========================================================
    MOBILE
    ========================================================= */
+
 @media (max-width: 680px) {
 
+    html,
     body {
-        height: 100dvh;
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 0;
         overflow: hidden;
     }
 
+    body {
+        display: block;
+    }
+
+    /* MAIN APP */
     .app {
         width: 100%;
         height: 100dvh;
+        min-height: 0;
         display: flex;
         flex-direction: column;
+        overflow: hidden;
     }
 
 
-    /* ---------- SIDEBAR ---------- */
+    /* =====================================================
+       SIDEBAR
+       ===================================================== */
 
     .sidebar {
         width: 100%;
         min-width: 0;
-        height: 45dvh;
-        max-height: 45dvh;
-        flex-shrink: 0;
+        height: 48dvh;
+        max-height: 48dvh;
+        min-height: 0;
+
+        flex: 0 0 48dvh;
+
         border-right: none;
         border-bottom: 1px solid var(--border);
+
+        overflow: hidden;
     }
 
+
+    /* LOGO */
+
     .sidebar-logo {
-        padding: 12px 14px;
+        height: 55px;
+        padding: 8px 12px;
         gap: 9px;
+        flex-shrink: 0;
     }
 
     .logo-icon {
-        width: 34px;
-        height: 34px;
-        font-size: 15px;
+        width: 36px;
+        height: 36px;
+        min-width: 36px;
+        border-radius: 9px;
+        font-size: 16px;
     }
 
     .logo-name {
@@ -966,91 +992,154 @@ body {
     }
 
 
-    /* ---------- NAVIGATION ---------- */
+    /* NAVIGATION */
 
     .sidebar-nav {
-        padding: 7px 8px 0;
+        width: 100%;
+        height: 62px;
+        padding: 5px 8px 0;
+
+        display: flex;
+        flex-shrink: 0;
         gap: 2px;
     }
 
     .nav-item {
-        padding: 7px 3px 8px;
+        min-width: 0;
+        padding: 5px 2px 7px;
+
         font-size: 10px;
+
+        display: flex;
+        flex: 1;
+
         gap: 3px;
     }
 
     .nav-item i {
-        font-size: 14px;
+        font-size: 13px;
     }
 
 
-    /* ---------- TAB PANEL ---------- */
+    /* TAB PANEL */
 
     .tab-panel {
-        padding: 10px 12px 8px;
-        gap: 7px;
+        width: 100%;
         min-height: 0;
+
+        flex: 1;
+
+        padding: 8px 10px 7px;
+        gap: 6px;
+
+        overflow: hidden;
     }
 
     .panel-label {
         font-size: 9px;
-        padding-bottom: 2px;
+        padding-bottom: 1px;
+        flex-shrink: 0;
     }
 
 
-    /* ---------- SEARCH ---------- */
+    /* SEARCH */
+
+    .search-wrap {
+        flex-shrink: 0;
+    }
 
     .search-wrap input {
+        width: 100%;
+        height: 36px;
+
         font-size: 12px;
         padding: 8px 10px 8px 32px;
     }
 
 
-    /* ---------- SYMPTOMS ---------- */
+    /* SELECTED SYMPTOMS */
 
-    .symptom-list {
-        min-height: 0;
+    .selected-badges {
+        max-height: 45px;
         overflow-y: auto;
-    }
-
-    .sym-item {
-        padding: 7px 9px;
-        font-size: 12px;
-    }
-
-    .analyze-btn {
-        padding: 9px 12px;
-        font-size: 12px;
         flex-shrink: 0;
     }
 
+    .badge {
+        font-size: 9px;
+        padding: 3px 7px;
+    }
 
-    /* ---------- IMAGING ---------- */
+
+    /* SYMPTOM LIST */
+
+    .symptom-list {
+        min-height: 0;
+        flex: 1;
+
+        overflow-y: auto;
+        overflow-x: hidden;
+
+        gap: 2px;
+    }
+
+    .sym-item {
+        width: 100%;
+        min-height: 31px;
+
+        padding: 6px 8px;
+
+        font-size: 11px;
+        line-height: 1.2;
+    }
+
+
+    /* ANALYZE BUTTON */
+
+    .analyze-btn {
+        width: 100%;
+        min-height: 36px;
+
+        flex-shrink: 0;
+
+        padding: 8px 10px;
+        font-size: 11px;
+    }
+
+
+    /* =====================================================
+       IMAGING
+       ===================================================== */
+
+    .upload-zone {
+        flex-shrink: 0;
+    }
 
     .upload-zone-inner {
-        padding: 12px;
-        gap: 4px;
+        padding: 9px;
+        gap: 3px;
     }
 
     .upload-icon {
-        width: 32px;
-        height: 32px;
-        font-size: 14px;
-        margin-bottom: 2px;
+        width: 30px;
+        height: 30px;
+
+        font-size: 12px;
+        margin-bottom: 1px;
     }
 
     .upload-title {
-        font-size: 12px;
+        font-size: 11px;
     }
 
     .upload-hint {
-        font-size: 9px;
+        font-size: 8px;
     }
 
     .upload-trigger {
-        font-size: 10px;
-        padding: 5px 10px;
-        margin-top: 3px;
+        font-size: 9px;
+        padding: 5px 9px;
+        margin-top: 2px;
     }
 
     .upload-preview {
@@ -1058,54 +1147,104 @@ body {
     }
 
     .upload-preview img {
-        width: 36px;
-        height: 36px;
+        width: 34px;
+        height: 34px;
     }
 
     .preview-info span {
-        font-size: 10px;
-        max-width: 120px;
-    }
-
-
-    /* ---------- SIDEBAR FOOTER ---------- */
-
-    .sidebar-footer {
-        padding: 7px 10px;
-        font-size: 8px;
+        max-width: 110px;
+        font-size: 9px;
     }
 
 
     /* =====================================================
-       CHAT AREA
+       HISTORY
+       ===================================================== */
+
+    .history-list {
+        min-height: 0;
+        overflow-y: auto;
+    }
+
+    .history-item {
+        padding: 8px 10px;
+    }
+
+    .history-item-title {
+        font-size: 11px;
+    }
+
+    .history-item-time {
+        font-size: 9px;
+    }
+
+    .clear-btn {
+        flex-shrink: 0;
+        font-size: 10px;
+        padding: 7px;
+    }
+
+
+    /* SIDEBAR FOOTER */
+
+    .sidebar-footer {
+        min-height: 30px;
+        padding: 5px 9px;
+
+        font-size: 7px;
+        line-height: 1.2;
+
+        flex-shrink: 0;
+    }
+
+
+    /* =====================================================
+       CHAT MAIN
        ===================================================== */
 
     .chat-main {
         width: 100%;
-        height: 55dvh;
+        height: auto;
         min-height: 0;
-        flex: 1;
+
+        flex: 1 1 auto;
+
+        display: flex;
+        flex-direction: column;
+
+        overflow: hidden;
     }
 
 
-    /* ---------- CHAT HEADER ---------- */
+    /* =====================================================
+       CHAT HEADER
+       ===================================================== */
 
     .chat-header {
-        padding: 10px 12px;
-        min-height: 58px;
+        width: 100%;
+        min-height: 56px;
+        height: 56px;
+
+        padding: 8px 10px;
+
+        flex-shrink: 0;
+
+        position: relative;
+        z-index: 5;
     }
 
     .header-left {
-        gap: 9px;
         min-width: 0;
+        gap: 8px;
     }
 
     .dr-avatar {
-        width: 36px;
-        height: 36px;
-        min-width: 36px;
-        border-radius: 10px;
-        font-size: 16px;
+        width: 34px;
+        height: 34px;
+        min-width: 34px;
+
+        border-radius: 9px;
+        font-size: 15px;
     }
 
     .online-dot {
@@ -1114,30 +1253,31 @@ body {
     }
 
     .dr-name {
-        font-size: 16px;
-    }
-
-    .dr-status {
-        font-size: 9px;
+        font-size: 15px;
         white-space: nowrap;
     }
 
-    .pulse-dot {
-        width: 5px;
-        height: 5px;
+    .dr-status {
+        max-width: 150px;
+
+        font-size: 8px;
+
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
 
 
-    /* ---------- HEADER BUTTONS ---------- */
+    /* HEADER BUTTONS */
 
     .header-right {
-        gap: 5px;
+        gap: 4px;
         flex-shrink: 0;
     }
 
     .head-btn {
-        width: 32px;
-        height: 32px;
+        width: 30px;
+        height: 30px;
         font-size: 12px;
     }
 
@@ -1146,144 +1286,204 @@ body {
     }
 
 
-    /* ---------- CHAT MESSAGES ---------- */
+    /* =====================================================
+       MESSAGES
+       ===================================================== */
 
     .messages {
-        padding: 12px;
-        gap: 12px;
+        width: 100%;
+        min-height: 0;
+
+        flex: 1;
+
+        padding: 10px;
+
+        overflow-y: auto;
+        overflow-x: hidden;
+
+        gap: 10px;
     }
 
     .msg {
-        max-width: 92%;
-        gap: 7px;
+        width: auto;
+        max-width: 94%;
+
+        gap: 6px;
     }
 
     .msg-avatar {
-        width: 27px;
-        height: 27px;
-        min-width: 27px;
+        width: 26px;
+        height: 26px;
+        min-width: 26px;
+
         border-radius: 7px;
-        font-size: 12px;
+        font-size: 11px;
     }
 
     .msg-bubble {
-        padding: 9px 12px;
-        font-size: 12px;
+        max-width: 100%;
+
+        padding: 8px 10px;
+
+        font-size: 11px;
         line-height: 1.5;
+
+        overflow-wrap: anywhere;
         word-break: break-word;
     }
 
     .msg-time {
-        font-size: 9px;
+        font-size: 8px;
     }
 
 
-    /* ---------- RESULT CARDS ---------- */
+    /* =====================================================
+       RESULT CARDS
+       ===================================================== */
 
     .result-card {
         width: 100%;
+        max-width: 100%;
     }
 
     .result-card-header {
-        padding: 10px;
-        gap: 8px;
+        padding: 9px 10px;
+
+        flex-wrap: wrap;
+        gap: 6px;
     }
 
     .result-card-title {
-        font-size: 12px;
-    }
-
-    .confidence-label {
-        font-size: 10px;
-    }
-
-    .confidence-bar {
-        width: 55px;
-    }
-
-    .result-card-body {
-        padding: 10px;
-        gap: 8px;
-    }
-
-    .result-section {
         font-size: 11px;
     }
 
-    .result-section-label {
+    .confidence-bar-wrap {
+        max-width: 100%;
+    }
+
+    .confidence-label {
         font-size: 9px;
+        min-width: 32px;
+    }
+
+    .confidence-bar {
+        width: 50px;
+    }
+
+    .result-card-body {
+        padding: 9px 10px;
+        gap: 7px;
+    }
+
+    .result-section {
+        font-size: 10px;
+        line-height: 1.45;
+    }
+
+    .result-section-label {
+        font-size: 8px;
+    }
+
+    .match-tag,
+    .det-sym,
+    .risk-badge {
+        font-size: 9px;
+        padding: 2px 7px;
     }
 
 
-    /* ---------- CHAT FOOTER ---------- */
+    /* =====================================================
+       CHAT FOOTER
+       ===================================================== */
 
     .chat-footer {
-        padding: 9px 10px;
+        width: 100%;
+
+        padding: 7px 8px;
+
+        flex-shrink: 0;
     }
 
     .input-row {
-        gap: 6px;
+        width: 100%;
+        gap: 5px;
     }
 
     .input-wrap {
         min-width: 0;
+        width: 100%;
         border-radius: 10px;
     }
 
     .input-wrap input {
         min-width: 0;
-        font-size: 12px;
-        padding: 10px 7px;
+        width: 100%;
+
+        font-size: 11px;
+        padding: 9px 6px;
     }
 
     .input-wrap input::placeholder {
-        font-size: 11px;
+        font-size: 10px;
+    }
+
+    .input-actions {
+        flex-shrink: 0;
     }
 
     .mic-btn {
-        width: 28px;
-        height: 28px;
-        font-size: 12px;
+        width: 27px;
+        height: 27px;
+
+        font-size: 11px;
     }
 
     .send-btn {
-        width: 40px;
-        height: 40px;
-        border-radius: 10px;
-        font-size: 14px;
+        width: 37px;
+        height: 37px;
+        min-width: 37px;
+
+        border-radius: 9px;
+        font-size: 13px;
     }
 
     .footer-note {
-        margin-top: 5px;
-        font-size: 8px;
-        line-height: 1.3;
+        margin-top: 4px;
+
+        font-size: 7px;
+        line-height: 1.25;
+
+        white-space: normal;
     }
 }
 
 
 /* =========================================================
-   SMALL PHONES
+   VERY SMALL PHONES
    ========================================================= */
 
-@media (max-width: 480px) {
+@media (max-width: 400px) {
 
     .sidebar {
-        height: 43dvh;
-        max-height: 43dvh;
+        height: 46dvh;
+        max-height: 46dvh;
+        flex-basis: 46dvh;
     }
 
     .chat-main {
-        height: 57dvh;
+        min-height: 0;
     }
 
     .sidebar-logo {
-        padding: 9px 12px;
+        height: 50px;
+        padding: 6px 10px;
     }
 
     .logo-icon {
-        width: 30px;
-        height: 30px;
-        font-size: 13px;
+        width: 32px;
+        height: 32px;
+        min-width: 32px;
+        font-size: 14px;
     }
 
     .logo-name {
@@ -1294,9 +1494,12 @@ body {
         font-size: 8px;
     }
 
+    .sidebar-nav {
+        height: 56px;
+    }
+
     .nav-item {
         font-size: 9px;
-        padding: 5px 2px 6px;
     }
 
     .nav-item i {
@@ -1304,91 +1507,136 @@ body {
     }
 
     .tab-panel {
-        padding: 8px 10px 6px;
+        padding: 6px 8px;
         gap: 5px;
     }
 
     .sym-item {
-        padding: 6px 8px;
-        font-size: 11px;
+        min-height: 28px;
+        padding: 5px 7px;
+        font-size: 10px;
     }
 
-    .upload-zone-inner {
-        padding: 9px;
+    .analyze-btn {
+        min-height: 32px;
+        font-size: 10px;
     }
 
-    .upload-icon {
-        width: 28px;
-        height: 28px;
-        font-size: 12px;
-    }
-
-    .upload-title {
-        font-size: 11px;
-    }
-
-    .upload-hint {
-        font-size: 8px;
-    }
-
-    .upload-trigger {
-        font-size: 9px;
-        padding: 4px 8px;
+    .sidebar-footer {
+        display: none;
     }
 
     .chat-header {
-        padding: 8px 10px;
-    }
-
-    .dr-avatar {
-        width: 32px;
-        height: 32px;
-        min-width: 32px;
-        font-size: 14px;
-    }
-
-    .dr-name {
-        font-size: 14px;
-    }
-
-    .dr-status {
-        font-size: 8px;
-    }
-
-    .head-btn {
-        width: 29px;
-        height: 29px;
-    }
-
-    .messages {
-        padding: 9px;
-        gap: 9px;
-    }
-
-    .msg {
-        max-width: 95%;
-    }
-
-    .msg-bubble {
-        padding: 8px 10px;
-        font-size: 11px;
-    }
-
-    .chat-footer {
+        min-height: 52px;
+        height: 52px;
         padding: 7px 8px;
     }
 
+    .dr-avatar {
+        width: 31px;
+        height: 31px;
+        min-width: 31px;
+    }
+
+    .dr-name {
+        font-size: 13px;
+    }
+
+    .dr-status {
+        font-size: 7px;
+        max-width: 120px;
+    }
+
+    .head-btn {
+        width: 27px;
+        height: 27px;
+    }
+
+    .messages {
+        padding: 8px;
+    }
+
+    .msg {
+        max-width: 96%;
+    }
+
+    .msg-bubble {
+        font-size: 10px;
+        padding: 7px 9px;
+    }
+
+    .chat-footer {
+        padding: 6px;
+    }
+
     .input-wrap input {
-        font-size: 11px;
-        padding: 9px 6px;
+        font-size: 10px;
     }
 
     .send-btn {
-        width: 36px;
-        height: 36px;
+        width: 34px;
+        height: 34px;
+        min-width: 34px;
+    }
+}
+
+
+/* =========================================================
+   LANDSCAPE MOBILE
+   ========================================================= */
+
+@media (max-width: 680px) and (orientation: landscape) {
+
+    .sidebar {
+        height: 42dvh;
+        max-height: 42dvh;
+        flex-basis: 42dvh;
     }
 
-    .footer-note {
-        font-size: 7px;
+    .chat-main {
+        height: 58dvh;
+    }
+
+    .sidebar-logo {
+        height: 42px;
+        padding: 5px 10px;
+    }
+
+    .logo-icon {
+        width: 28px;
+        height: 28px;
+        min-width: 28px;
+    }
+
+    .sidebar-nav {
+        height: 48px;
+    }
+
+    .tab-panel {
+        padding: 5px 8px;
+    }
+
+    .sidebar-footer {
+        display: none;
+    }
+
+    .chat-header {
+        height: 45px;
+        min-height: 45px;
+        padding: 5px 8px;
+    }
+
+    .dr-avatar {
+        width: 28px;
+        height: 28px;
+        min-width: 28px;
+    }
+
+    .messages {
+        padding: 7px;
+    }
+
+    .chat-footer {
+        padding: 5px 7px;
     }
 }
