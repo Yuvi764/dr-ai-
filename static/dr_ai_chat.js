@@ -1,6 +1,6 @@
 /* ── Dr. AI — Frontend Logic ── */
 
-const API_BASE = "";
+const API_BASE = "http://localhost:5000";
 
 // Symptoms are loaded dynamically from /api/symptoms (matches trained model exactly)
 // Fallback list used if server is offline
@@ -727,4 +727,3 @@ function clearChat() {
     chatMessages.innerHTML = "";
     showWelcome();
 }
-
