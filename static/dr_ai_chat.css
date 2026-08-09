@@ -886,41 +886,13 @@ body {
 .rank-3 .confidence-fill { background: var(--accent-2); }
 
 /* =========================================================
-   PERFECT MOBILE RESPONSIVE
-   Original theme/design preserved
+   FINAL MOBILE FIX
+   Keeps original Dr. AI design
    ========================================================= */
 
-/* TABLET */
-@media (max-width: 900px) {
+@media screen and (max-width: 680px) {
 
-    .sidebar {
-        width: 260px;
-        min-width: 260px;
-    }
-
-    .chat-header {
-        padding: 14px 18px;
-    }
-
-    .messages {
-        padding: 18px;
-    }
-
-    .chat-footer {
-        padding: 14px 18px;
-    }
-
-    .msg {
-        max-width: 85%;
-    }
-}
-
-
-/* =========================================================
-   MOBILE
-   ========================================================= */
-
-@media (max-width: 680px) {
+    /* ---------- PAGE ---------- */
 
     html,
     body {
@@ -935,13 +907,14 @@ body {
         display: block;
     }
 
-    /* MAIN APP */
     .app {
         width: 100%;
         height: 100dvh;
         min-height: 0;
-        display: flex;
-        flex-direction: column;
+
+        display: grid;
+        grid-template-rows: 44dvh 56dvh;
+
         overflow: hidden;
     }
 
@@ -951,77 +924,84 @@ body {
        ===================================================== */
 
     .sidebar {
-        width: 100%;
-        min-width: 0;
-        height: 48dvh;
-        max-height: 48dvh;
-        min-height: 0;
+        width: 100% !important;
+        min-width: 0 !important;
+        height: 44dvh !important;
+        max-height: 44dvh !important;
 
-        flex: 0 0 48dvh;
+        display: flex;
+        flex-direction: column;
+
+        overflow: hidden;
 
         border-right: none;
         border-bottom: 1px solid var(--border);
-
-        overflow: hidden;
     }
 
 
     /* LOGO */
 
     .sidebar-logo {
-        height: 55px;
-        padding: 8px 12px;
-        gap: 9px;
+        width: 100%;
+        height: 52px;
+
+        padding: 7px 12px;
+
         flex-shrink: 0;
+
+        gap: 9px;
     }
 
     .logo-icon {
-        width: 36px;
-        height: 36px;
-        min-width: 36px;
+        width: 34px;
+        height: 34px;
+        min-width: 34px;
+
+        font-size: 15px;
         border-radius: 9px;
-        font-size: 16px;
     }
 
     .logo-name {
-        font-size: 17px;
+        font-size: 16px;
     }
 
     .logo-sub {
-        font-size: 9px;
+        font-size: 8px;
     }
 
 
-    /* NAVIGATION */
+    /* NAV */
 
     .sidebar-nav {
         width: 100%;
-        height: 62px;
-        padding: 5px 8px 0;
+        height: 58px;
+
+        padding: 4px 8px 0;
+
+        flex-shrink: 0;
 
         display: flex;
-        flex-shrink: 0;
         gap: 2px;
     }
 
     .nav-item {
         min-width: 0;
-        padding: 5px 2px 7px;
-
-        font-size: 10px;
-
-        display: flex;
         flex: 1;
 
-        gap: 3px;
+        padding: 5px 2px 7px;
+
+        font-size: 9px;
+
+        line-height: 1.1;
     }
 
     .nav-item i {
-        font-size: 13px;
+        font-size: 12px;
+        margin-bottom: 2px;
     }
 
 
-    /* TAB PANEL */
+    /* TAB AREA */
 
     .tab-panel {
         width: 100%;
@@ -1029,15 +1009,15 @@ body {
 
         flex: 1;
 
-        padding: 8px 10px 7px;
-        gap: 6px;
+        padding: 7px 9px 5px;
+
+        gap: 5px;
 
         overflow: hidden;
     }
 
     .panel-label {
-        font-size: 9px;
-        padding-bottom: 1px;
+        font-size: 8px;
         flex-shrink: 0;
     }
 
@@ -1045,153 +1025,82 @@ body {
     /* SEARCH */
 
     .search-wrap {
+        width: 100%;
         flex-shrink: 0;
     }
 
     .search-wrap input {
         width: 100%;
-        height: 36px;
+        height: 34px;
 
-        font-size: 12px;
-        padding: 8px 10px 8px 32px;
+        font-size: 11px;
+
+        padding: 7px 8px 7px 30px;
     }
 
 
-    /* SELECTED SYMPTOMS */
+    /* SELECTED BADGES */
 
     .selected-badges {
-        max-height: 45px;
-        overflow-y: auto;
+        max-height: 35px;
+
+        overflow-x: auto;
+        overflow-y: hidden;
+
         flex-shrink: 0;
     }
 
-    .badge {
-        font-size: 9px;
-        padding: 3px 7px;
-    }
 
-
-    /* SYMPTOM LIST */
+    /* SYMPTOMS */
 
     .symptom-list {
-        min-height: 0;
+        width: 100%;
+
         flex: 1;
+        min-height: 0;
 
-        overflow-y: auto;
         overflow-x: hidden;
-
-        gap: 2px;
+        overflow-y: auto;
     }
 
     .sym-item {
         width: 100%;
-        min-height: 31px;
 
-        padding: 6px 8px;
+        min-height: 28px;
 
-        font-size: 11px;
+        padding: 5px 7px;
+
+        font-size: 10px;
+
         line-height: 1.2;
     }
 
 
-    /* ANALYZE BUTTON */
+    /* ANALYZE */
 
     .analyze-btn {
         width: 100%;
-        min-height: 36px;
+
+        height: 33px;
+        min-height: 33px;
 
         flex-shrink: 0;
 
-        padding: 8px 10px;
-        font-size: 11px;
-    }
+        padding: 6px 8px;
 
-
-    /* =====================================================
-       IMAGING
-       ===================================================== */
-
-    .upload-zone {
-        flex-shrink: 0;
-    }
-
-    .upload-zone-inner {
-        padding: 9px;
-        gap: 3px;
-    }
-
-    .upload-icon {
-        width: 30px;
-        height: 30px;
-
-        font-size: 12px;
-        margin-bottom: 1px;
-    }
-
-    .upload-title {
-        font-size: 11px;
-    }
-
-    .upload-hint {
-        font-size: 8px;
-    }
-
-    .upload-trigger {
-        font-size: 9px;
-        padding: 5px 9px;
-        margin-top: 2px;
-    }
-
-    .upload-preview {
-        padding: 7px 9px;
-    }
-
-    .upload-preview img {
-        width: 34px;
-        height: 34px;
-    }
-
-    .preview-info span {
-        max-width: 110px;
-        font-size: 9px;
-    }
-
-
-    /* =====================================================
-       HISTORY
-       ===================================================== */
-
-    .history-list {
-        min-height: 0;
-        overflow-y: auto;
-    }
-
-    .history-item {
-        padding: 8px 10px;
-    }
-
-    .history-item-title {
-        font-size: 11px;
-    }
-
-    .history-item-time {
-        font-size: 9px;
-    }
-
-    .clear-btn {
-        flex-shrink: 0;
         font-size: 10px;
-        padding: 7px;
     }
 
 
     /* SIDEBAR FOOTER */
 
     .sidebar-footer {
-        min-height: 30px;
-        padding: 5px 9px;
+        min-height: 25px;
+
+        padding: 4px 8px;
 
         font-size: 7px;
+
         line-height: 1.2;
 
         flex-shrink: 0;
@@ -1199,15 +1108,13 @@ body {
 
 
     /* =====================================================
-       CHAT MAIN
+       CHAT
        ===================================================== */
 
     .chat-main {
         width: 100%;
-        height: auto;
+        height: 56dvh;
         min-height: 0;
-
-        flex: 1 1 auto;
 
         display: flex;
         flex-direction: column;
@@ -1222,173 +1129,185 @@ body {
 
     .chat-header {
         width: 100%;
-        min-height: 56px;
-        height: 56px;
 
-        padding: 8px 10px;
+        height: 52px;
+        min-height: 52px;
+
+        padding: 6px 8px;
+
+        display: flex;
 
         flex-shrink: 0;
 
-        position: relative;
-        z-index: 5;
+        overflow: hidden;
     }
 
     .header-left {
         min-width: 0;
-        gap: 8px;
+
+        flex: 1 1 auto;
+
+        display: flex;
+
+        gap: 7px;
+
+        overflow: hidden;
     }
 
     .dr-avatar {
-        width: 34px;
-        height: 34px;
-        min-width: 34px;
+        width: 32px;
+        height: 32px;
 
-        border-radius: 9px;
-        font-size: 15px;
-    }
+        min-width: 32px;
 
-    .online-dot {
-        width: 8px;
-        height: 8px;
+        border-radius: 8px;
+
+        font-size: 14px;
     }
 
     .dr-name {
-        font-size: 15px;
+        font-size: 14px;
+
         white-space: nowrap;
     }
 
     .dr-status {
-        max-width: 150px;
+        max-width: 105px;
 
-        font-size: 8px;
+        font-size: 7px;
 
         white-space: nowrap;
+
         overflow: hidden;
         text-overflow: ellipsis;
     }
 
+    .online-dot {
+        width: 7px;
+        height: 7px;
+    }
 
-    /* HEADER BUTTONS */
+
+    /* HEADER RIGHT */
 
     .header-right {
-        gap: 4px;
-        flex-shrink: 0;
+        flex: 0 0 auto;
+
+        display: flex;
+
+        gap: 3px;
+
+        margin-left: 3px;
+
+        overflow: hidden;
     }
 
     .head-btn {
-        width: 30px;
-        height: 30px;
-        font-size: 12px;
+        width: 27px;
+        height: 27px;
+
+        min-width: 27px;
+
+        font-size: 10px;
+
+        border-radius: 7px;
     }
 
     .accuracy-badge {
-        display: none;
+        display: none !important;
     }
 
 
     /* =====================================================
-       MESSAGES
+       CHAT MESSAGES
        ===================================================== */
 
     .messages {
         width: 100%;
+
+        min-width: 0;
         min-height: 0;
 
         flex: 1;
 
-        padding: 10px;
+        padding: 8px;
 
-        overflow-y: auto;
+        display: flex;
+        flex-direction: column;
+
         overflow-x: hidden;
-
-        gap: 10px;
+        overflow-y: auto;
     }
 
     .msg {
-        width: auto;
-        max-width: 94%;
+        width: 100%;
 
-        gap: 6px;
+        max-width: 100%;
+
+        min-width: 0;
+
+        display: flex;
+
+        gap: 5px;
     }
 
     .msg-avatar {
-        width: 26px;
-        height: 26px;
-        min-width: 26px;
+        width: 25px;
+        height: 25px;
 
-        border-radius: 7px;
-        font-size: 11px;
+        min-width: 25px;
+
+        font-size: 10px;
     }
 
     .msg-bubble {
-        max-width: 100%;
+        min-width: 0;
+        max-width: calc(100% - 30px);
 
-        padding: 8px 10px;
+        padding: 8px 9px;
 
-        font-size: 11px;
-        line-height: 1.5;
+        font-size: 10px;
+
+        line-height: 1.45;
 
         overflow-wrap: anywhere;
         word-break: break-word;
     }
 
     .msg-time {
-        font-size: 8px;
+        font-size: 7px;
     }
 
 
-    /* =====================================================
-       RESULT CARDS
-       ===================================================== */
+    /* RESULT CARD */
 
     .result-card {
         width: 100%;
         max-width: 100%;
+
+        min-width: 0;
     }
 
-    .result-card-header {
-        padding: 9px 10px;
+    .result-card-header,
+    .result-card-body {
+        min-width: 0;
 
-        flex-wrap: wrap;
-        gap: 6px;
+        padding: 8px;
     }
 
     .result-card-title {
-        font-size: 11px;
-    }
-
-    .confidence-bar-wrap {
-        max-width: 100%;
-    }
-
-    .confidence-label {
-        font-size: 9px;
-        min-width: 32px;
-    }
-
-    .confidence-bar {
-        width: 50px;
-    }
-
-    .result-card-body {
-        padding: 9px 10px;
-        gap: 7px;
+        font-size: 10px;
     }
 
     .result-section {
-        font-size: 10px;
-        line-height: 1.45;
+        font-size: 9px;
+
+        overflow-wrap: anywhere;
+        word-break: break-word;
     }
 
     .result-section-label {
         font-size: 8px;
-    }
-
-    .match-tag,
-    .det-sym,
-    .risk-badge {
-        font-size: 9px;
-        padding: 2px 7px;
     }
 
 
@@ -1399,32 +1318,47 @@ body {
     .chat-footer {
         width: 100%;
 
-        padding: 7px 8px;
+        min-width: 0;
+
+        padding: 6px;
 
         flex-shrink: 0;
+
+        overflow: hidden;
     }
 
     .input-row {
         width: 100%;
-        gap: 5px;
+
+        min-width: 0;
+
+        display: flex;
+
+        gap: 4px;
     }
 
     .input-wrap {
         min-width: 0;
-        width: 100%;
-        border-radius: 10px;
+
+        flex: 1;
+
+        width: auto;
     }
 
     .input-wrap input {
-        min-width: 0;
         width: 100%;
 
-        font-size: 11px;
-        padding: 9px 6px;
+        min-width: 0;
+
+        height: 36px;
+
+        padding: 8px 6px;
+
+        font-size: 10px;
     }
 
     .input-wrap input::placeholder {
-        font-size: 10px;
+        font-size: 9px;
     }
 
     .input-actions {
@@ -1432,28 +1366,33 @@ body {
     }
 
     .mic-btn {
-        width: 27px;
-        height: 27px;
+        width: 25px;
+        height: 25px;
 
-        font-size: 11px;
+        font-size: 10px;
     }
 
     .send-btn {
-        width: 37px;
-        height: 37px;
-        min-width: 37px;
+        width: 36px;
+        height: 36px;
 
-        border-radius: 9px;
-        font-size: 13px;
+        min-width: 36px;
+
+        flex-shrink: 0;
+
+        border-radius: 8px;
+
+        font-size: 12px;
     }
 
     .footer-note {
-        margin-top: 4px;
+        margin-top: 3px;
 
         font-size: 7px;
-        line-height: 1.25;
 
-        white-space: normal;
+        line-height: 1.2;
+
+        overflow: hidden;
     }
 }
 
@@ -1462,181 +1401,38 @@ body {
    VERY SMALL PHONES
    ========================================================= */
 
-@media (max-width: 400px) {
+@media screen and (max-width: 360px) {
+
+    .app {
+        grid-template-rows: 43dvh 57dvh;
+    }
 
     .sidebar {
-        height: 46dvh;
-        max-height: 46dvh;
-        flex-basis: 46dvh;
-    }
-
-    .chat-main {
-        min-height: 0;
-    }
-
-    .sidebar-logo {
-        height: 50px;
-        padding: 6px 10px;
-    }
-
-    .logo-icon {
-        width: 32px;
-        height: 32px;
-        min-width: 32px;
-        font-size: 14px;
-    }
-
-    .logo-name {
-        font-size: 15px;
-    }
-
-    .logo-sub {
-        font-size: 8px;
-    }
-
-    .sidebar-nav {
-        height: 56px;
-    }
-
-    .nav-item {
-        font-size: 9px;
-    }
-
-    .nav-item i {
-        font-size: 12px;
-    }
-
-    .tab-panel {
-        padding: 6px 8px;
-        gap: 5px;
-    }
-
-    .sym-item {
-        min-height: 28px;
-        padding: 5px 7px;
-        font-size: 10px;
-    }
-
-    .analyze-btn {
-        min-height: 32px;
-        font-size: 10px;
+        height: 43dvh !important;
+        max-height: 43dvh !important;
     }
 
     .sidebar-footer {
         display: none;
     }
 
-    .chat-header {
-        min-height: 52px;
-        height: 52px;
-        padding: 7px 8px;
+    .chat-main {
+        height: 57dvh;
     }
 
-    .dr-avatar {
-        width: 31px;
-        height: 31px;
-        min-width: 31px;
-    }
-
-    .dr-name {
-        font-size: 13px;
+    .header-right .head-btn:nth-child(n+3) {
+        display: none;
     }
 
     .dr-status {
-        font-size: 7px;
-        max-width: 120px;
-    }
-
-    .head-btn {
-        width: 27px;
-        height: 27px;
-    }
-
-    .messages {
-        padding: 8px;
-    }
-
-    .msg {
-        max-width: 96%;
+        max-width: 85px;
     }
 
     .msg-bubble {
-        font-size: 10px;
-        padding: 7px 9px;
+        font-size: 9px;
     }
 
-    .chat-footer {
-        padding: 6px;
-    }
-
-    .input-wrap input {
-        font-size: 10px;
-    }
-
-    .send-btn {
-        width: 34px;
-        height: 34px;
-        min-width: 34px;
-    }
-}
-
-
-/* =========================================================
-   LANDSCAPE MOBILE
-   ========================================================= */
-
-@media (max-width: 680px) and (orientation: landscape) {
-
-    .sidebar {
-        height: 42dvh;
-        max-height: 42dvh;
-        flex-basis: 42dvh;
-    }
-
-    .chat-main {
-        height: 58dvh;
-    }
-
-    .sidebar-logo {
-        height: 42px;
-        padding: 5px 10px;
-    }
-
-    .logo-icon {
-        width: 28px;
-        height: 28px;
-        min-width: 28px;
-    }
-
-    .sidebar-nav {
-        height: 48px;
-    }
-
-    .tab-panel {
-        padding: 5px 8px;
-    }
-
-    .sidebar-footer {
-        display: none;
-    }
-
-    .chat-header {
-        height: 45px;
-        min-height: 45px;
-        padding: 5px 8px;
-    }
-
-    .dr-avatar {
-        width: 28px;
-        height: 28px;
-        min-width: 28px;
-    }
-
-    .messages {
-        padding: 7px;
-    }
-
-    .chat-footer {
-        padding: 5px 7px;
+    .input-wrap input::placeholder {
+        font-size: 8px;
     }
 }
