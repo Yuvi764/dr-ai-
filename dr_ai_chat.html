@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dr. AI — Medical Intelligence</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,600;1,9..144,300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="dr_ai_chat.css">
+</head>
+<body>
+    <div class="app">
+
+        <!-- SIDEBAR -->
+        <aside class="sidebar">
+            <div class="sidebar-logo">
+                <div class="logo-icon"><i class="fa-solid fa-heart-pulse"></i></div>
+                <div>
+                    <div class="logo-name">Dr. AI</div>
+                    <div class="logo-sub">Medical Intelligence</div>
+                </div>
+            </div>
+
+            <nav class="sidebar-nav">
+                <button class="nav-item active" data-tab="symptoms">
+                    <i class="fa-solid fa-stethoscope"></i>
+                    <span>Symptoms</span>
+                </button>
+                <button class="nav-item" data-tab="imaging">
+                    <i class="fa-solid fa-x-ray"></i>
+                    <span>Medical Imaging</span>
+                </button>
+                <button class="nav-item" data-tab="history">
+                    <i class="fa-solid fa-clock-rotate-left"></i>
+                    <span>History</span>
+                </button>
+            </nav>
+
+            <!-- SYMPTOMS TAB -->
+            <div class="tab-panel active" id="tab-symptoms">
+                <div class="panel-label">SYMPTOM CHECKER</div>
+                <div class="search-wrap">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input type="text" id="symptomSearch" placeholder="Search symptoms...">
+                </div>
+                <div class="selected-badges" id="selectedBadges"></div>
+                <div class="symptom-list" id="symptomGrid"></div>
+                <button class="analyze-btn" id="analyzeBtn" disabled>
+                    <i class="fa-solid fa-microscope"></i>
+                    Analyze Symptoms
+                </button>
+            </div>
+
+            <!-- IMAGING TAB -->
+            <div class="tab-panel" id="tab-imaging">
+                <div class="panel-label">IMAGING ANALYSIS</div>
+
+                <div class="upload-zone" id="skinUploadZone">
+                    <input type="file" id="skinFile" accept="image/*" hidden>
+                    <div class="upload-zone-inner" id="skinUploadInner">
+                        <div class="upload-icon"><i class="fa-solid fa-microscope"></i></div>
+                        <div class="upload-title">Skin Condition</div>
+                        <div class="upload-hint">JPG, PNG up to 10MB</div>
+                        <button class="upload-trigger" onclick="document.getElementById('skinFile').click()">
+                            Select Image
+                        </button>
+                    </div>
+                    <div class="upload-preview hidden" id="skinPreview">
+                        <img id="skinPreviewImg" src="" alt="Skin preview">
+                        <div class="preview-info">
+                            <span id="skinFileName">filename.jpg</span>
+                            <button class="remove-btn" onclick="removeUpload('skin')"><i class="fa-solid fa-xmark"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="upload-zone" id="xrayUploadZone" style="margin-top:12px">
+                    <input type="file" id="xrayFile" accept="image/*" hidden>
+                    <div class="upload-zone-inner" id="xrayUploadInner">
+                        <div class="upload-icon"><i class="fa-solid fa-x-ray"></i></div>
+                        <div class="upload-title">X-Ray / Scan</div>
+                        <div class="upload-hint">JPG, PNG, DICOM</div>
+                        <button class="upload-trigger" onclick="document.getElementById('xrayFile').click()">
+                            Select Image
+                        </button>
+                    </div>
+                    <div class="upload-preview hidden" id="xrayPreview">
+                        <img id="xrayPreviewImg" src="" alt="X-Ray preview">
+                        <div class="preview-info">
+                            <span id="xrayFileName">filename.jpg</span>
+                            <button class="remove-btn" onclick="removeUpload('xray')"><i class="fa-solid fa-xmark"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="analyze-btn" id="analyzeImageBtn" disabled>
+                    <i class="fa-solid fa-wand-magic-sparkles"></i>
+                    Analyze Images
+                </button>
+            </div>
+
+            <!-- HISTORY TAB -->
+            <div class="tab-panel" id="tab-history">
+                <div class="panel-label">RECENT SESSIONS</div>
+                <div class="history-list" id="historyList">
+                    <div class="history-empty">
+                        <i class="fa-regular fa-folder-open"></i>
+                        <p>No previous sessions</p>
+                    </div>
+                </div>
+                <button class="clear-btn" id="clearHistoryBtn">
+                    <i class="fa-solid fa-trash-can"></i> Clear History
+                </button>
+            </div>
+
+            <div class="sidebar-footer">
+                <i class="fa-solid fa-shield-halved"></i>
+                Not a substitute for professional medical advice
+            </div>
+        </aside>
+
+        <!-- MAIN CHAT -->
+        <main class="chat-main">
+            <header class="chat-header">
+                <div class="header-left">
+                    <div class="dr-avatar">
+                        <i class="fa-solid fa-user-doctor"></i>
+                        <div class="online-dot"></div>
+                    </div>
+                    <div>
+                        <div class="dr-name">Dr. AI</div>
+                        <div class="dr-status">
+                            <span class="pulse-dot"></span>
+                            Online · Medical Intelligence Active
+                        </div>
+                    </div>
+                </div>
+                <div class="header-right">
+                    <button class="head-btn" title="New conversation" onclick="clearChat()">
+                        <i class="fa-solid fa-rotate-right"></i>
+                    </button>
+           <!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Action Buttons</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+.header-actions{display:flex;align-items:center;gap:8px}
+.icon-btn{background:rgba(255,255,255,0.08);border:none;padding:8px 10px;border-radius:8px;color:#fff;cursor:pointer;transition:all .3s ease;font-size:14px}
+.icon-btn:hover{background:#2563eb;transform:scale(1.05)}
+.icon-btn:active{transform:scale(0.95)}
+
+body{background:#111827;padding:20px}
+</style>
+</head>
+
+<body>
+
+<div class="header-actions">
+ <div class="header-actions">
+
+    <a href=" https://whatsapp.com/dl/">
+        <button class="icon-btn">
+            <i class="fas fa-phone"></i>
+        </button>
+    </a>
+
+    <a href="https://mail.google.com/mail/u/0/?tab=rm&ogbl#inbox" target="_blank">
+        <button class="icon-btn">
+            <i class="fas fa-video"></i>
+        </button>
+    </a>
+
+    
+        <button class="icon-btn">
+            <i class="fas fa-info-circle"></i>
+        </button>
+    </a>
+
+</div>
+
+</body>
+</html>
+                    <div class="header-right">
+                        <i class="fa-solid fa-chart-simple"></i>
+                        Contact me
+                    </div>
+                    
+                </div>
+            </header>
+
+            <div class="messages" id="chatMessages">
+                <!-- Welcome message injected by JS -->
+            </div>
+
+            <footer class="chat-footer">
+                <div class="input-row">
+                    <div class="input-wrap">
+                        <input type="text" id="chatInput" placeholder="Describe your symptoms in your own words...">
+                        <div class="input-actions">
+                            <button class="mic-btn" id="micBtn" title="Voice input">
+                                <i class="fa-solid fa-microphone"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <button class="send-btn" id="sendBtn">
+                        <i class="fa-solid fa-paper-plane"></i>
+                    </button>
+                </div>
+                <div class="footer-note">
+                    <i class="fa-solid fa-circle-info"></i>
+                    Predictions use symptom overlap scoring. Always consult a licensed physician.
+                </div>
+            </footer>
+        </main>
+
+    </div>
+
+    <script src="dr_ai_chat.js"></script>
+</body>
+</html>

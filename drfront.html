@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Dr AI Login</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<style>
+
+body{
+    margin:0;
+    font-family:'Segoe UI',sans-serif;
+    background:#f5eef7;
+}
+
+/* MAIN CONTAINER */
+
+.auth-container{
+    height:100vh;
+    display:flex;
+}
+
+/* LEFT SIDE IMAGE */
+
+.left-panel{
+    width:50%;
+    background:#f3edf5;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    position:relative;
+}
+
+.left-panel img{
+    width:60%;
+}
+
+/* RIGHT PANEL */
+
+.right-panel{
+    width:50%;
+    background:linear-gradient(135deg,#8e3b8f,#6b2a7b);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:white;
+}
+
+/* LOGIN BOX */
+
+.login-box{
+    width:320px;
+}
+
+.login-box h3{
+    font-weight:600;
+    margin-bottom:10px;
+}
+
+.form-control{
+    border-radius:30px;
+    padding:10px 15px;
+    border:none;
+}
+
+.form-control:focus{
+    box-shadow:none;
+}
+
+/* LOGIN BUTTON */
+
+.btn-login{
+
+    width:100%;
+    border-radius:30px;
+    border:1px solid white;
+    background:transparent;
+    color:white;
+}
+
+.btn-login:hover{
+
+    background:white;
+    color:#6b2a7b;
+}
+
+/* TOGGLE TEXT */
+
+.toggle{
+    font-size:14px;
+}
+
+.toggle span{
+    cursor:pointer;
+    text-decoration:underline;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:900px){
+
+.left-panel{
+display:none;
+}
+
+.right-panel{
+width:100%;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="auth-container">
+
+<!-- LEFT SIDE IMAGE -->
+
+<div class="left-panel">
+
+<img src="https://cdn-icons-png.flaticon.com/512/2785/2785482.png">
+
+</div>
+
+
+<!-- RIGHT SIDE LOGIN -->
+
+<div class="right-panel">
+
+<div class="login-box">
+
+<h3>Welcome Back!</h3>
+<p style="font-size:14px">Login Your Account</p>
+
+<!-- LOGIN FORM -->
+
+<form id="loginForm">
+
+<input type="email" class="form-control mb-3" placeholder="Email Address" required>
+
+<input type="password" class="form-control mb-3" placeholder="Password" required>
+
+<button class="btn btn-login mb-3">Login</button>
+
+</form>
+
+
+<!-- SIGNUP FORM -->
+
+<form id="signupForm" style="display:none;">
+
+<input type="text" class="form-control mb-3" placeholder="Full Name" required>
+
+<input type="email" class="form-control mb-3" placeholder="Email Address" required>
+
+<input type="password" class="form-control mb-3" placeholder="Password" required>
+
+<button class="btn btn-login mb-3">Sign Up</button>
+
+</form>
+
+
+<div class="toggle text-center">
+
+<span id="toggleText">Don't have an account?</span>
+
+<span onclick="toggleForm()" id="toggleBtn">Sign Up</span>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+<script>
+
+let loginForm=document.getElementById("loginForm")
+let signupForm=document.getElementById("signupForm")
+let toggleText=document.getElementById("toggleText")
+let toggleBtn=document.getElementById("toggleBtn")
+
+function toggleForm(){
+
+if(loginForm.style.display==="none"){
+
+loginForm.style.display="block"
+signupForm.style.display="none"
+
+toggleText.innerHTML="Don't have an account?"
+toggleBtn.innerHTML="Sign Up"
+
+}
+
+else{
+
+loginForm.style.display="none"
+signupForm.style.display="block"
+
+toggleText.innerHTML="Already have an account?"
+toggleBtn.innerHTML="Login"
+
+}
+
+}
+
+loginForm.addEventListener("submit",function(e){
+
+e.preventDefault()
+
+window.location.href="dr_ai_chat.html"
+
+})
+
+</script>
+
+</body>
+</html>
