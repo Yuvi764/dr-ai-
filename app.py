@@ -7,6 +7,7 @@ Fallback uses fixed Jaccard with small-disease penalty.
 import os, json
 import numpy as np
 from flask import Flask, request, jsonify
+from flask import Flask, render_template
 from flask_cors import CORS
 
 app = Flask(__name__)
@@ -328,3 +329,6 @@ if __name__ == "__main__":
     print("\n━━━ Dr. AI server ready ━━━")
     print("  http://localhost:5000\n")
     app.run(host="0.0.0.0", port=5000, debug=True)
+@app.route("/")
+def home():
+    return render_template("drfront.html")
