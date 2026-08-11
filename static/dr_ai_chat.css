@@ -886,27 +886,48 @@ body {
 .rank-3 .confidence-fill { background: var(--accent-2); }
 
 /* =========================================================
-   DR. AI - FINAL MOBILE UI
+   DR AI - REAL MOBILE RESPONSIVE
    ========================================================= */
 
-@media screen and (max-width: 680px) {
+@media (max-width: 768px) {
 
-    /* MAIN MOBILE LAYOUT */
-    .app {
+    /* ==========================================
+       FULL MOBILE SCREEN
+       ========================================== */
+
+    html,
+    body {
         width: 100%;
-        height: 100dvh;
-        display: grid;
-        grid-template-rows: 58dvh 42dvh;
+        height: 100%;
+        margin: 0;
+        padding: 0;
         overflow: hidden;
     }
 
-    /* ================= SIDEBAR ================= */
+    .app {
+        width: 100%;
+        height: 100dvh;
+        min-height: 0;
+
+        display: flex;
+        flex-direction: column;
+
+        overflow: hidden;
+    }
+
+
+    /* ==========================================
+       SIDEBAR
+       ========================================== */
 
     .sidebar {
         width: 100% !important;
         min-width: 0 !important;
-        height: 58dvh !important;
-        max-height: 58dvh !important;
+
+        height: 52dvh !important;
+        max-height: 52dvh !important;
+
+        flex: 0 0 52dvh;
 
         display: flex;
         flex-direction: column;
@@ -917,46 +938,57 @@ body {
         border-bottom: 1px solid var(--border);
     }
 
-    /* LOGO */
+
+    /* ==========================================
+       LOGO
+       ========================================== */
 
     .sidebar-logo {
-        height: 54px;
-        min-height: 54px;
+        width: 100%;
+
+        height: clamp(48px, 7dvh, 58px);
+        min-height: 48px;
 
         padding: 7px 12px;
 
-        gap: 9px;
-
         flex-shrink: 0;
+
+        gap: 8px;
     }
 
     .logo-icon {
-        width: 36px;
-        height: 36px;
-        min-width: 36px;
+        width: clamp(30px, 9vw, 38px);
+        height: clamp(30px, 9vw, 38px);
 
-        border-radius: 10px;
-        font-size: 15px;
+        min-width: 30px;
+
+        font-size: clamp(13px, 4vw, 16px);
     }
 
     .logo-name {
-        font-size: 17px;
+        font-size: clamp(15px, 4.5vw, 18px);
     }
 
     .logo-sub {
-        font-size: 8px;
+        font-size: clamp(7px, 2.2vw, 10px);
     }
 
 
-    /* ================= NAVIGATION ================= */
+    /* ==========================================
+       NAVIGATION
+       ========================================== */
 
     .sidebar-nav {
-        height: 58px;
-        min-height: 58px;
+        width: 100%;
 
-        padding: 4px 10px 0;
+        height: clamp(54px, 9dvh, 68px);
+        min-height: 54px;
 
-        gap: 3px;
+        padding: 3px 8px 0;
+
+        display: flex;
+
+        gap: 2px;
 
         flex-shrink: 0;
     }
@@ -964,72 +996,84 @@ body {
     .nav-item {
         flex: 1;
 
-        padding: 6px 3px 8px;
+        min-width: 0;
 
-        font-size: 9px;
+        padding: 5px 2px 7px;
+
+        font-size: clamp(8px, 2.5vw, 11px);
 
         line-height: 1.1;
+
+        gap: 2px;
     }
 
     .nav-item i {
-        display: block;
+        font-size: clamp(11px, 3.5vw, 15px);
 
-        font-size: 13px;
-
-        margin-bottom: 4px;
+        margin-bottom: 2px;
     }
 
 
-    /* ================= TAB PANEL ================= */
+    /* ==========================================
+       TAB PANEL
+       ========================================== */
 
     .tab-panel {
+        width: 100%;
+
         min-height: 0;
 
         flex: 1;
 
-        padding: 8px 10px 6px;
+        padding: 7px clamp(8px, 3vw, 14px) 6px;
 
-        gap: 7px;
+        gap: 6px;
 
         overflow: hidden;
     }
 
     .panel-label {
-        font-size: 8px;
-        letter-spacing: 1.5px;
+        font-size: clamp(7px, 2.2vw, 10px);
 
         flex-shrink: 0;
     }
 
 
-    /* ================= SEARCH ================= */
+    /* ==========================================
+       SEARCH
+       ========================================== */
 
     .search-wrap {
         width: 100%;
 
-        height: 36px;
-        min-height: 36px;
+        height: clamp(32px, 6vw, 38px);
+        min-height: 32px;
 
         flex-shrink: 0;
     }
 
     .search-wrap input {
         width: 100%;
-        height: 36px;
+        height: 100%;
 
-        font-size: 11px;
+        box-sizing: border-box;
 
-        padding: 8px 10px 8px 31px;
+        font-size: clamp(10px, 3vw, 13px);
+
+        padding: 7px 9px 7px 30px;
 
         border-radius: 9px;
     }
 
 
-    /* ================= SELECTED SYMPTOMS ================= */
+    /* ==========================================
+       SELECTED SYMPTOMS
+       ========================================== */
 
     .selected-badges {
-        min-height: 0;
-        max-height: 32px;
+        width: 100%;
+
+        max-height: 34px;
 
         overflow-x: auto;
         overflow-y: hidden;
@@ -1038,14 +1082,19 @@ body {
     }
 
 
-    /* ================= SYMPTOM LIST ================= */
+    /* ==========================================
+       SYMPTOM LIST
+       ========================================== */
 
     .symptom-list {
+        width: 100% !important;
+
         flex: 1 !important;
 
         min-height: 0 !important;
 
-        width: 100%;
+        overflow-x: hidden !important;
+        overflow-y: auto !important;
 
         display: flex;
 
@@ -1053,117 +1102,76 @@ body {
 
         gap: 3px;
 
-        overflow-x: hidden;
-        overflow-y: auto;
+        padding-right: 3px;
 
-        padding: 2px 3px 4px 0;
+        -webkit-overflow-scrolling: touch;
     }
-
-    /* BEAUTIFUL SYMPTOM ITEMS */
 
     .sym-item {
         width: 100%;
 
-        min-height: 30px;
+        min-height: clamp(28px, 5vw, 34px);
+
+        box-sizing: border-box;
 
         padding: 6px 9px;
 
-        border-radius: 8px;
-
-        background: rgba(255,255,255,0.015);
-
-        border: 1px solid transparent;
-
-        color: var(--text-2);
-
-        font-size: 10px;
+        font-size: clamp(9px, 2.8vw, 12px);
 
         line-height: 1.2;
 
-        transition: all 0.18s ease;
-
         flex-shrink: 0;
-    }
 
-    .sym-item::before {
-        width: 6px;
-        height: 6px;
-
-        background: var(--border);
-    }
-
-    .sym-item:hover {
-        background: var(--surface2);
-
-        border-color: var(--border);
-
-        color: var(--text);
-
-        transform: translateX(1px);
-    }
-
-    .sym-item.active {
-        background: rgba(91,141,238,0.13);
-
-        border-color: rgba(91,141,238,0.35);
-
-        color: var(--text);
-    }
-
-    .sym-item.active::before {
-        background: var(--accent);
-
-        box-shadow: 0 0 7px rgba(91,141,238,0.7);
+        border-radius: 8px;
     }
 
 
-    /* ================= SCROLLBAR ================= */
+    /* SCROLLBAR */
 
     .symptom-list::-webkit-scrollbar {
-        width: 4px;
-    }
-
-    .symptom-list::-webkit-scrollbar-track {
-        background: transparent;
+        width: 3px;
     }
 
     .symptom-list::-webkit-scrollbar-thumb {
         background: var(--border);
-
         border-radius: 10px;
     }
 
-    .symptom-list::-webkit-scrollbar-thumb:hover {
-        background: var(--accent);
-    }
 
-
-    /* ================= ANALYZE BUTTON ================= */
+    /* ==========================================
+       ANALYZE BUTTON
+       ========================================== */
 
     .analyze-btn {
         width: 100%;
 
-        height: 34px;
-        min-height: 34px;
+        height: clamp(32px, 7vw, 38px);
+        min-height: 32px;
 
         flex-shrink: 0;
 
-        border-radius: 9px;
-
-        font-size: 10px;
-
         padding: 6px 8px;
+
+        font-size: clamp(9px, 2.7vw, 12px);
+
+        border-radius: 9px;
     }
 
 
-    /* ================= SIDEBAR FOOTER ================= */
+    /* ==========================================
+       SIDEBAR FOOTER
+       ========================================== */
 
     .sidebar-footer {
-        min-height: 25px;
+        width: 100%;
 
-        padding: 4px 9px;
+        min-height: 23px;
 
-        font-size: 7px;
+        padding: 4px 8px;
+
+        box-sizing: border-box;
+
+        font-size: clamp(6px, 1.8vw, 8px);
 
         line-height: 1.2;
 
@@ -1171,13 +1179,18 @@ body {
     }
 
 
-    /* ================= CHAT ================= */
+    /* ==========================================
+       CHAT
+       ========================================== */
 
     .chat-main {
         width: 100%;
 
-        height: 42dvh;
+        height: 48dvh;
+
         min-height: 0;
+
+        flex: 1 1 48dvh;
 
         display: flex;
         flex-direction: column;
@@ -1186,15 +1199,19 @@ body {
     }
 
 
-    /* ================= CHAT HEADER ================= */
+    /* ==========================================
+       CHAT HEADER
+       ========================================== */
 
     .chat-header {
         width: 100%;
 
-        height: 50px;
-        min-height: 50px;
+        height: clamp(48px, 8dvh, 58px);
+        min-height: 48px;
 
-        padding: 6px 8px;
+        padding: 6px clamp(7px, 2.5vw, 12px);
+
+        box-sizing: border-box;
 
         flex-shrink: 0;
 
@@ -1204,7 +1221,7 @@ body {
     .header-left {
         min-width: 0;
 
-        flex: 1;
+        flex: 1 1 auto;
 
         gap: 7px;
 
@@ -1212,26 +1229,26 @@ body {
     }
 
     .dr-avatar {
-        width: 32px;
-        height: 32px;
+        width: clamp(29px, 9vw, 38px);
+        height: clamp(29px, 9vw, 38px);
 
-        min-width: 32px;
+        min-width: 29px;
 
         border-radius: 9px;
 
-        font-size: 14px;
+        font-size: clamp(12px, 4vw, 17px);
     }
 
     .dr-name {
-        font-size: 14px;
+        font-size: clamp(13px, 4vw, 17px);
 
         white-space: nowrap;
     }
 
     .dr-status {
-        max-width: 110px;
+        max-width: clamp(80px, 30vw, 150px);
 
-        font-size: 7px;
+        font-size: clamp(6px, 2vw, 9px);
 
         white-space: nowrap;
 
@@ -1246,29 +1263,43 @@ body {
     }
 
 
-    /* HEADER BUTTONS */
+    /* ==========================================
+       CHAT HEADER BUTTONS
+       ========================================== */
 
     .header-right {
-        flex-shrink: 0;
+        flex: 0 0 auto;
+
+        min-width: 0;
+
+        display: flex;
 
         gap: 3px;
 
         margin-left: 3px;
+
+        overflow: hidden;
     }
 
     .head-btn {
-        width: 28px;
-        height: 28px;
+        width: clamp(25px, 8vw, 32px);
+        height: clamp(25px, 8vw, 32px);
 
-        min-width: 28px;
+        min-width: clamp(25px, 8vw, 32px);
 
         border-radius: 7px;
 
-        font-size: 10px;
+        font-size: clamp(9px, 2.8vw, 13px);
+    }
+
+    .accuracy-badge {
+        display: none !important;
     }
 
 
-    /* ================= MESSAGES ================= */
+    /* ==========================================
+       CHAT MESSAGES
+       ========================================== */
 
     .messages {
         width: 100%;
@@ -1278,13 +1309,19 @@ body {
 
         flex: 1;
 
-        padding: 7px;
+        padding: clamp(6px, 2vw, 10px);
+
+        box-sizing: border-box;
 
         overflow-x: hidden;
         overflow-y: auto;
+
+        -webkit-overflow-scrolling: touch;
     }
 
     .msg {
+        width: 100%;
+
         max-width: 100%;
 
         min-width: 0;
@@ -1293,36 +1330,87 @@ body {
     }
 
     .msg-avatar {
-        width: 25px;
-        height: 25px;
+        width: clamp(23px, 7vw, 29px);
+        height: clamp(23px, 7vw, 29px);
 
-        min-width: 25px;
+        min-width: clamp(23px, 7vw, 29px);
 
-        font-size: 10px;
+        font-size: clamp(9px, 3vw, 12px);
     }
 
     .msg-bubble {
-        max-width: calc(100% - 30px);
-
         min-width: 0;
 
-        padding: 8px 9px;
+        max-width: calc(100% - 32px);
 
-        font-size: 10px;
+        box-sizing: border-box;
 
-        line-height: 1.4;
+        padding: clamp(7px, 2vw, 10px);
+
+        font-size: clamp(9px, 2.8vw, 12px);
+
+        line-height: 1.45;
 
         overflow-wrap: anywhere;
         word-break: break-word;
     }
 
+    .msg-time {
+        font-size: clamp(7px, 2vw, 9px);
+    }
 
-    /* ================= CHAT INPUT ================= */
+
+    /* ==========================================
+       RESULT CARD
+       ========================================== */
+
+    .result-card {
+        width: 100%;
+
+        max-width: 100%;
+
+        min-width: 0;
+
+        box-sizing: border-box;
+    }
+
+    .result-card-header,
+    .result-card-body {
+        min-width: 0;
+
+        box-sizing: border-box;
+
+        padding: clamp(7px, 2vw, 10px);
+    }
+
+    .result-card-title {
+        font-size: clamp(9px, 2.8vw, 12px);
+    }
+
+    .result-section {
+        font-size: clamp(8px, 2.5vw, 11px);
+
+        overflow-wrap: anywhere;
+        word-break: break-word;
+    }
+
+    .result-section-label {
+        font-size: clamp(7px, 2vw, 9px);
+    }
+
+
+    /* ==========================================
+       CHAT FOOTER
+       ========================================== */
 
     .chat-footer {
         width: 100%;
 
-        padding: 6px;
+        min-width: 0;
+
+        padding: 5px clamp(5px, 2vw, 9px);
+
+        box-sizing: border-box;
 
         flex-shrink: 0;
 
@@ -1332,6 +1420,8 @@ body {
     .input-row {
         width: 100%;
 
+        min-width: 0;
+
         display: flex;
 
         gap: 4px;
@@ -1340,7 +1430,9 @@ body {
     .input-wrap {
         min-width: 0;
 
-        flex: 1;
+        flex: 1 1 auto;
+
+        width: auto;
     }
 
     .input-wrap input {
@@ -1348,35 +1440,41 @@ body {
 
         min-width: 0;
 
-        height: 36px;
+        height: clamp(32px, 9vw, 40px);
 
-        padding: 8px 8px;
+        box-sizing: border-box;
+
+        padding: 7px;
+
+        font-size: clamp(9px, 2.7vw, 12px);
+    }
+
+    .input-wrap input::placeholder {
+        font-size: clamp(8px, 2.4vw, 10px);
+    }
+
+    .mic-btn {
+        width: clamp(23px, 7vw, 29px);
+        height: clamp(23px, 7vw, 29px);
 
         font-size: 10px;
     }
 
     .send-btn {
-        width: 36px;
-        height: 36px;
+        width: clamp(34px, 10vw, 42px);
+        height: clamp(34px, 10vw, 42px);
 
-        min-width: 36px;
+        min-width: clamp(34px, 10vw, 42px);
 
-        border-radius: 8px;
+        border-radius: 9px;
 
-        font-size: 12px;
-    }
-
-    .mic-btn {
-        width: 25px;
-        height: 25px;
-
-        font-size: 10px;
+        font-size: clamp(11px, 3.5vw, 15px);
     }
 
     .footer-note {
         margin-top: 3px;
 
-        font-size: 7px;
+        font-size: clamp(6px, 1.8vw, 8px);
 
         line-height: 1.2;
     }
@@ -1384,38 +1482,104 @@ body {
 
 
 /* =========================================================
-   EXTRA SMALL PHONES
+   VERY SMALL PHONES
    ========================================================= */
 
-@media screen and (max-width: 360px) {
+@media (max-width: 380px) {
 
     .app {
-        grid-template-rows: 60dvh 40dvh;
+        grid-template-rows: 50dvh 50dvh;
     }
 
     .sidebar {
-        height: 60dvh !important;
-        max-height: 60dvh !important;
+        height: 50dvh !important;
+        max-height: 50dvh !important;
+        flex-basis: 50dvh;
     }
 
     .chat-main {
-        height: 40dvh;
+        height: 50dvh;
     }
 
     .sidebar-footer {
         display: none;
     }
 
+    .nav-item {
+        font-size: 8px;
+    }
+
     .sym-item {
-        min-height: 29px;
         font-size: 9px;
+        min-height: 27px;
+    }
+
+    .analyze-btn {
+        font-size: 9px;
+    }
+
+    .dr-status {
+        max-width: 75px;
+    }
+
+    /* Keep only essential chat buttons */
+    .header-right .head-btn:nth-child(n+4) {
+        display: none;
+    }
+}
+
+
+/* =========================================================
+   EXTREMELY SMALL PHONES
+   ========================================================= */
+
+@media (max-width: 320px) {
+
+    .app {
+        grid-template-rows: 48dvh 52dvh;
+    }
+
+    .sidebar {
+        height: 48dvh !important;
+        max-height: 48dvh !important;
+    }
+
+    .chat-main {
+        height: 52dvh;
+    }
+
+    .sidebar-logo {
+        height: 45px;
+        min-height: 45px;
+    }
+
+    .sidebar-nav {
+        height: 50px;
+        min-height: 50px;
+    }
+
+    .tab-panel {
+        padding: 5px 7px;
+        gap: 4px;
+    }
+
+    .sym-item {
+        min-height: 25px;
+        padding: 4px 7px;
+        font-size: 8px;
+    }
+
+    .search-wrap {
+        height: 31px;
+        min-height: 31px;
+    }
+
+    .analyze-btn {
+        height: 30px;
+        min-height: 30px;
     }
 
     .header-right .head-btn:nth-child(n+3) {
         display: none;
-    }
-
-    .dr-status {
-        max-width: 80px;
     }
 }
