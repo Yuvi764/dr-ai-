@@ -2064,175 +2064,204 @@ button {
     body {
         width: 100%;
         height: 100dvh;
-
         overflow: hidden;
     }
 
     .app {
         width: 100%;
         height: 100dvh;
-
         display: flex;
-
         flex-direction: column;
-
         overflow: hidden;
     }
 
-
-    /* -------------------------
+    /* =====================================================
        MOBILE SIDEBAR
-       ------------------------- */
+       Keeps the symptom controls compact so the chat/output
+       gets most of the phone screen.
+       ===================================================== */
 
     .sidebar {
         width: 100%;
         min-width: 0;
-
-        height: 47dvh;
-        min-height: 300px;
-        max-height: 470px;
-
-        flex-shrink: 0;
-
+        height: 40dvh;
+        min-height: 285px;
+        max-height: 390px;
+        flex: 0 0 40dvh;
         border-right: none;
-
         border-bottom: 1px solid var(--border);
-
-        box-shadow:
-            0 10px 35px rgba(0,0,0,.25);
+        box-shadow: 0 8px 28px rgba(0,0,0,.28);
     }
 
     .sidebar::after {
         display: none;
     }
 
+    /* LOGO */
     .sidebar-logo {
-        padding: 12px 16px;
-
+        height: 62px;
+        padding: 9px 14px;
         gap: 10px;
     }
 
     .logo-icon {
-        width: 38px;
-        height: 38px;
-
-        border-radius: 11px;
-
-        font-size: 16px;
+        width: 40px;
+        height: 40px;
+        border-radius: 12px;
+        font-size: 17px;
+        flex-shrink: 0;
     }
 
     .logo-name {
-        font-size: 17px;
+        font-size: 18px;
+        line-height: 1.1;
     }
 
     .logo-sub {
         font-size: 8px;
+        margin-top: 3px;
     }
 
-
-    /* -------------------------
-       MOBILE NAV
-       ------------------------- */
-
+    /* NAVIGATION */
     .sidebar-nav {
-        padding: 6px 10px 0;
-
-        gap: 3px;
+        height: 61px;
+        padding: 4px 9px 0;
+        gap: 4px;
     }
 
     .nav-item {
-        min-height: 48px;
-
-        padding: 7px 4px;
-
-        font-size: 10px;
+        min-width: 0;
+        min-height: 55px;
+        padding: 6px 3px 7px;
+        border-radius: 10px;
+        gap: 4px;
+        font-size: 9px;
+        line-height: 1.1;
     }
 
     .nav-item i {
-        font-size: 14px;
+        font-size: 15px;
     }
 
+    .nav-item span {
+        max-width: 75px;
+        text-align: center;
+    }
 
-    /* -------------------------
-       MOBILE PANEL
-       ------------------------- */
+    .nav-item.active::after {
+        width: 42px;
+        height: 2px;
+    }
 
+    /* TAB PANEL */
     .tab-panel {
-        padding: 10px 12px 8px;
-
-        gap: 7px;
+        padding: 7px 12px 6px;
+        gap: 6px;
+        min-height: 0;
     }
 
     .panel-label {
         font-size: 8px;
-
         letter-spacing: 1.5px;
+        padding-bottom: 1px;
     }
 
+    /* SEARCH */
     .search-wrap input {
         height: 36px;
-
         font-size: 11px;
-
         border-radius: 10px;
+        padding-left: 36px;
     }
 
-    .symptom-list {
+    .search-wrap i {
+        left: 12px;
+        font-size: 12px;
+    }
+
+    /* SELECTED SYMPTOMS */
+    .selected-badges {
+        max-height: 34px;
+        overflow-y: auto;
         gap: 4px;
     }
 
+    .badge {
+        padding: 4px 8px;
+        font-size: 9px;
+    }
+
+    /* SYMPTOM LIST
+       Always scrollable so all symptoms remain available. */
+    .symptom-list {
+        flex: 1 1 auto;
+        min-height: 52px;
+        overflow-y: auto;
+        gap: 4px;
+        padding-right: 2px;
+    }
+
     .sym-item {
-        min-height: 34px;
-
-        padding: 7px 9px;
-
+        min-height: 31px;
+        padding: 6px 9px;
+        border-radius: 8px;
         font-size: 10px;
-
-        border-radius: 9px;
+        flex-shrink: 0;
     }
 
+    .sym-item::before {
+        width: 5px;
+        height: 5px;
+    }
+
+    /* ANALYZE */
     .analyze-btn {
-        min-height: 40px;
-
-        border-radius: 10px;
-
+        min-height: 36px;
+        height: 36px;
+        flex-shrink: 0;
+        border-radius: 9px;
         font-size: 10px;
     }
 
+    /* SIDEBAR FOOTER */
+    .sidebar-footer {
+        min-height: 30px;
+        padding: 5px 10px;
+        font-size: 7px;
+        line-height: 1.25;
+    }
 
-    /* -------------------------
+    /* =====================================================
        MOBILE CHAT
-       ------------------------- */
+       ===================================================== */
 
     .chat-main {
         width: 100%;
-
+        min-width: 0;
         min-height: 0;
-
-        flex: 1;
-
-        height: auto;
-
+        height: 60dvh;
+        flex: 1 1 60dvh;
         overflow: hidden;
     }
 
+    /* CHAT HEADER */
     .chat-header {
-        min-height: 57px;
-
-        padding: 8px 12px;
+        min-height: 54px;
+        height: 54px;
+        padding: 7px 10px;
     }
 
     .header-left {
-        gap: 9px;
+        gap: 8px;
+        min-width: 0;
     }
 
     .dr-avatar {
         width: 34px;
         height: 34px;
-
+        min-width: 34px;
         border-radius: 10px;
-
-        font-size: 15px;
+        font-size: 14px;
     }
 
     .online-dot {
@@ -2241,63 +2270,63 @@ button {
     }
 
     .dr-name {
-        font-size: 14px;
+        font-size: 15px;
+        line-height: 1.1;
     }
 
     .dr-status {
         font-size: 8px;
+        gap: 4px;
+        white-space: nowrap;
+    }
+
+    .pulse-dot {
+        width: 5px;
+        height: 5px;
     }
 
     .header-right {
         gap: 4px;
+        flex-shrink: 0;
     }
 
     .head-btn {
-        width: 31px;
-        height: 31px;
-
+        width: 30px;
+        height: 30px;
         border-radius: 8px;
-
-        font-size: 11px;
+        font-size: 10px;
     }
 
     .accuracy-badge {
         display: none;
     }
 
-
-    /* -------------------------
-       MOBILE MESSAGES
-       ------------------------- */
-
+    /* MESSAGES */
     .messages {
-        padding: 13px 10px;
-
-        gap: 12px;
+        padding: 10px 9px;
+        gap: 10px;
+        overflow-x: hidden;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
     }
 
     .msg {
-        max-width: 90%;
-
-        gap: 7px;
+        max-width: 94%;
+        gap: 6px;
     }
 
     .msg-avatar {
-        width: 28px;
-        height: 28px;
-
-        border-radius: 9px;
-
-        font-size: 11px;
+        width: 27px;
+        height: 27px;
+        min-width: 27px;
+        border-radius: 8px;
+        font-size: 10px;
     }
 
     .msg-bubble {
-        padding: 9px 11px;
-
-        border-radius: 13px;
-
-        font-size: 10px;
-
+        padding: 10px 11px;
+        border-radius: 12px;
+        font-size: 12px;
         line-height: 1.55;
     }
 
@@ -2305,44 +2334,51 @@ button {
         font-size: 8px;
     }
 
-
-    /* -------------------------
-       MOBILE RESULTS
-       ------------------------- */
-
+    /* RESULT CARD */
     .result-card {
-        border-radius: 12px;
+        width: 100%;
+        max-width: 100%;
+        border-radius: 11px;
     }
 
     .result-card-header {
-        padding: 10px;
+        padding: 9px 10px;
+        gap: 6px;
+        flex-wrap: wrap;
     }
 
     .result-card-title {
         font-size: 11px;
     }
 
-    .result-card-body {
-        padding: 10px;
+    .confidence-bar {
+        width: 48px;
+    }
 
+    .result-card-body {
+        padding: 9px 10px;
         gap: 8px;
     }
 
     .result-section {
-        font-size: 10px;
+        font-size: 11px;
+        line-height: 1.55;
     }
 
-    .confidence-bar {
-        width: 50px;
+    .result-section-label {
+        font-size: 8px;
     }
 
+    .match-tag,
+    .det-sym {
+        font-size: 9px;
+        padding: 3px 7px;
+    }
 
-    /* -------------------------
-       MOBILE FOOTER
-       ------------------------- */
-
+    /* CHAT FOOTER */
     .chat-footer {
-        padding: 8px 9px 9px;
+        padding: 7px 8px 8px;
+        flex-shrink: 0;
     }
 
     .input-row {
@@ -2351,38 +2387,36 @@ button {
 
     .input-wrap {
         height: 42px;
-
-        border-radius: 12px;
-
-        padding-left: 10px;
+        min-width: 0;
+        border-radius: 11px;
+        padding: 0 7px 0 10px;
     }
 
     .input-wrap input {
-        font-size: 10px;
+        min-width: 0;
+        font-size: 11px;
     }
 
-    .send-btn {
-        width: 42px;
-        height: 42px;
-
-        border-radius: 12px;
-
-        font-size: 14px;
+    .input-wrap input::placeholder {
+        color: #66728a;
     }
 
     .mic-btn {
         width: 28px;
         height: 28px;
+        flex-shrink: 0;
+    }
+
+    .send-btn {
+        width: 42px;
+        height: 42px;
+        min-width: 42px;
+        border-radius: 11px;
+        font-size: 14px;
     }
 
     .footer-note {
         display: none;
-    }
-
-    .sidebar-footer {
-        padding: 7px 12px;
-
-        font-size: 8px;
     }
 }
 
@@ -2394,79 +2428,153 @@ button {
 @media (max-width: 380px) {
 
     .sidebar {
-        height: 45dvh;
-
-        min-height: 280px;
+        height: 38dvh;
+        min-height: 270px;
+        max-height: 350px;
+        flex-basis: 38dvh;
     }
 
     .sidebar-logo {
-        padding: 9px 12px;
+        height: 56px;
+        padding: 7px 11px;
     }
 
     .logo-icon {
-        width: 34px;
-        height: 34px;
-    }
-
-    .logo-name {
+        width: 36px;
+        height: 36px;
+        border-radius: 10px;
         font-size: 15px;
     }
 
+    .logo-name {
+        font-size: 16px;
+    }
+
+    .logo-sub {
+        font-size: 7px;
+    }
+
     .sidebar-nav {
-        padding-top: 3px;
+        height: 56px;
+        padding: 3px 7px 0;
     }
 
     .nav-item {
-        min-height: 43px;
+        min-height: 50px;
+        font-size: 8px;
+        padding: 5px 2px;
+    }
 
-        font-size: 9px;
+    .nav-item i {
+        font-size: 14px;
     }
 
     .tab-panel {
-        padding: 7px 9px;
+        padding: 6px 9px 5px;
+        gap: 5px;
+    }
+
+    .panel-label {
+        font-size: 7px;
+    }
+
+    .search-wrap input {
+        height: 34px;
+        font-size: 10px;
+    }
+
+    .symptom-list {
+        min-height: 45px;
     }
 
     .sym-item {
-        min-height: 31px;
-
+        min-height: 29px;
+        padding: 5px 8px;
         font-size: 9px;
     }
 
     .analyze-btn {
-        min-height: 36px;
-
+        height: 34px;
+        min-height: 34px;
         font-size: 9px;
+    }
+
+    .sidebar-footer {
+        min-height: 27px;
+        padding: 4px 8px;
+        font-size: 6.5px;
+    }
+
+    .chat-main {
+        height: 62dvh;
+        flex-basis: 62dvh;
     }
 
     .chat-header {
-        min-height: 53px;
+        height: 50px;
+        min-height: 50px;
+        padding: 6px 8px;
+    }
+
+    .dr-avatar {
+        width: 31px;
+        height: 31px;
+        min-width: 31px;
+        font-size: 13px;
+    }
+
+    .dr-name {
+        font-size: 14px;
+    }
+
+    .dr-status {
+        font-size: 7px;
+    }
+
+    .head-btn {
+        width: 28px;
+        height: 28px;
     }
 
     .messages {
-        padding: 10px 8px;
+        padding: 8px 7px;
+        gap: 8px;
     }
 
     .msg {
-        max-width: 94%;
+        max-width: 96%;
+    }
+
+    .msg-avatar {
+        width: 25px;
+        height: 25px;
+        min-width: 25px;
+        font-size: 9px;
     }
 
     .msg-bubble {
-        font-size: 9px;
-
-        padding: 8px 9px;
+        font-size: 11px;
+        line-height: 1.5;
+        padding: 9px 10px;
     }
 
     .chat-footer {
-        padding: 6px 7px;
+        padding: 6px 6px 7px;
     }
 
     .input-wrap {
         height: 39px;
     }
 
+    .input-wrap input {
+        font-size: 10px;
+    }
+
     .send-btn {
         width: 39px;
+        min-width: 39px;
         height: 39px;
+        border-radius: 10px;
     }
 }
 
