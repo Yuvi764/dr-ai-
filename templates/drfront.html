@@ -1,798 +1,1496 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-<title>Dr AI Login</title>
+    <title>Dr AI | Medical Intelligence</title>
 
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+          rel="stylesheet">
 
-<style>
-/* ================================
-   DR. AI LOGIN - RESPONSIVE DESIGN
-   ================================ */
+    <style>
 
-* {
-    box-sizing: border-box;
-}
+        /* =====================================================
+           GLOBAL
+           ===================================================== */
 
-html,
-body {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    min-height: 100%;
-}
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
-body {
-    font-family: 'Segoe UI', sans-serif;
-    background: #070b16;
-    overflow-x: hidden;
-}
+        html,
+        body {
+            width: 100%;
+            min-height: 100%;
+        }
 
+        body {
+            font-family: "Segoe UI", Arial, sans-serif;
+            background: #070c18;
+            color: white;
+            overflow-x: hidden;
+        }
 
-/* ================================
-   MAIN CONTAINER
-   ================================ */
 
-.auth-container {
-    min-height: 100vh;
-    min-height: 100dvh;
+        /* =====================================================
+           MAIN
+           ===================================================== */
 
-    width: 100%;
+        .auth-container {
+            width: 100%;
+            min-height: 100vh;
+            min-height: 100dvh;
 
-    display: flex;
-}
+            display: flex;
 
+            background:
+                radial-gradient(
+                    circle at 15% 50%,
+                    rgba(55, 120, 255, 0.12),
+                    transparent 35%
+                ),
+                radial-gradient(
+                    circle at 85% 20%,
+                    rgba(124, 92, 232, 0.10),
+                    transparent 35%
+                ),
+                #070c18;
+        }
 
-/* ================================
-   LEFT SIDE
-   ================================ */
 
-.left-panel {
-    width: 50%;
-    min-height: 100vh;
+        /* =====================================================
+           LEFT / DOCTOR PANEL
+           ===================================================== */
 
-    background:
-        radial-gradient(
-            circle at center,
-            rgba(79, 140, 255, 0.12),
-            transparent 45%
-        ),
-        linear-gradient(
-            135deg,
-            #101827,
-            #080c16
-        );
+        .left-panel {
+            width: 50%;
+            min-height: 100vh;
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
+            display: flex;
+            flex-direction: column;
 
-    position: relative;
+            align-items: center;
+            justify-content: center;
 
-    overflow: hidden;
-}
+            position: relative;
 
+            overflow: hidden;
 
-/* Decorative glow */
+            background:
+                radial-gradient(
+                    circle at center,
+                    rgba(65, 125, 255, 0.14),
+                    transparent 42%
+                ),
+                linear-gradient(
+                    145deg,
+                    #101a2d,
+                    #080e1b
+                );
 
-.left-panel::before {
-    content: "";
+            border-right: 1px solid rgba(148, 163, 184, 0.10);
+        }
 
-    position: absolute;
 
-    width: 350px;
-    height: 350px;
+        /* glowing circles */
 
-    border-radius: 50%;
+        .left-panel::before {
+            content: "";
 
-    background: rgba(79, 140, 255, 0.12);
+            position: absolute;
 
-    filter: blur(80px);
+            width: 380px;
+            height: 380px;
 
-    animation: glowMove 5s ease-in-out infinite;
-}
+            border-radius: 50%;
 
-.left-panel::after {
-    content: "";
+            background: rgba(64, 123, 255, 0.12);
 
-    position: absolute;
+            filter: blur(90px);
 
-    width: 250px;
-    height: 250px;
+            animation: glowOne 6s ease-in-out infinite;
+        }
 
-    border-radius: 50%;
+        .left-panel::after {
+            content: "";
 
-    background: rgba(139, 92, 246, 0.12);
+            position: absolute;
 
-    filter: blur(70px);
+            width: 260px;
+            height: 260px;
 
-    bottom: 10%;
-    right: 10%;
+            border-radius: 50%;
 
-    animation: glowMove2 6s ease-in-out infinite;
-}
+            background: rgba(124, 92, 232, 0.14);
 
+            filter: blur(80px);
 
-/* Image */
+            right: -70px;
+            bottom: -60px;
 
-.left-panel img {
-    width: min(60%, 420px);
+            animation: glowTwo 7s ease-in-out infinite;
+        }
 
-    max-width: 420px;
 
-    position: relative;
+        /* =====================================================
+           BRAND ON LEFT
+           ===================================================== */
 
-    z-index: 2;
+        .brand-box {
+            position: absolute;
 
-    filter:
-        drop-shadow(0 20px 40px rgba(0, 0, 0, 0.35));
+            top: 35px;
+            left: 42px;
 
-    transition: 0.4s ease;
+            display: flex;
+            align-items: center;
 
-    animation: doctorFloat 4s ease-in-out infinite;
-}
+            gap: 12px;
 
-.left-panel img:hover {
-    transform: scale(1.05);
-}
+            z-index: 5;
+        }
 
+        .brand-icon {
+            width: 42px;
+            height: 42px;
 
-/* ================================
-   RIGHT PANEL
-   ================================ */
+            border-radius: 13px;
 
-.right-panel {
-    width: 50%;
-    min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
 
-    display: flex;
+            font-size: 21px;
 
-    align-items: center;
-    justify-content: center;
+            background:
+                linear-gradient(
+                    135deg,
+                    #4f8cff,
+                    #7c5ce8
+                );
 
-    padding: 30px;
+            box-shadow:
+                0 10px 30px rgba(79, 140, 255, 0.25);
+        }
 
-    color: white;
+        .brand-name {
+            font-size: 18px;
+            font-weight: 700;
+        }
 
-    background:
-        radial-gradient(
-            circle at 20% 20%,
-            rgba(79, 140, 255, 0.12),
-            transparent 35%
-        ),
-        linear-gradient(
-            135deg,
-            #111827,
-            #0b1020
-        );
+        .brand-sub {
+            font-size: 9px;
 
-    position: relative;
+            color: #75829a;
 
-    overflow: hidden;
-}
+            letter-spacing: 1.5px;
 
+            text-transform: uppercase;
+        }
 
-/* Background glow */
 
-.right-panel::before {
-    content: "";
+        /* =====================================================
+           DOCTOR IMAGE
+           ===================================================== */
 
-    position: absolute;
+        .doctor-wrap {
+            position: relative;
 
-    width: 300px;
-    height: 300px;
+            z-index: 3;
 
-    border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
 
-    background: rgba(139, 92, 246, 0.10);
+            width: 100%;
+        }
 
-    filter: blur(90px);
+        .doctor-glow {
+            position: absolute;
 
-    top: -100px;
-    right: -100px;
-}
+            width: 360px;
+            height: 360px;
 
+            border-radius: 50%;
 
-/* ================================
-   LOGIN BOX
-   ================================ */
+            background:
+                radial-gradient(
+                    circle,
+                    rgba(79, 140, 255, 0.16),
+                    transparent 65%
+                );
 
-.login-box {
-    width: 100%;
-    max-width: 390px;
+            filter: blur(10px);
+        }
 
-    padding: 38px 35px;
+        .left-panel img {
+            position: relative;
 
-    border-radius: 24px;
+            z-index: 4;
 
-    background:
-        rgba(20, 28, 45, 0.82);
+            display: block;
 
-    border: 1px solid rgba(148, 163, 184, 0.14);
+            width: min(65%, 430px);
 
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
+            max-width: 430px;
 
-    box-shadow:
-        0 25px 70px rgba(0, 0, 0, 0.4),
-        0 0 35px rgba(79, 140, 255, 0.05);
+            height: auto;
 
-    position: relative;
+            object-fit: contain;
 
-    z-index: 2;
+            filter:
+                drop-shadow(0 25px 45px rgba(0, 0, 0, 0.45));
 
-    animation: boxAppear 0.7s ease;
-}
+            animation: doctorFloat 5s ease-in-out infinite;
 
+            transition: transform 0.4s ease;
+        }
 
-/* Top glowing line */
+        .left-panel img:hover {
+            transform: scale(1.04);
+        }
 
-.login-box::before {
-    content: "";
 
-    position: absolute;
+        /* =====================================================
+           LEFT TEXT
+           ===================================================== */
 
-    top: 0;
-    left: 15%;
+        .doctor-caption {
+            position: absolute;
 
-    width: 70%;
-    height: 2px;
+            bottom: 50px;
 
-    background:
-        linear-gradient(
-            90deg,
-            transparent,
-            #4f8cff,
-            #8b5cf6,
-            transparent
-        );
+            z-index: 5;
 
-    border-radius: 10px;
-}
+            text-align: center;
+        }
 
+        .doctor-caption h2 {
+            font-size: 25px;
 
-/* ================================
-   HEADING
-   ================================ */
+            margin-bottom: 6px;
 
-.login-box h3 {
-    margin-bottom: 8px;
+            font-weight: 700;
+        }
 
-    font-size: 26px;
+        .doctor-caption p {
+            color: #8290aa;
 
-    font-weight: 700;
+            font-size: 12px;
 
-    color: #ffffff;
-}
+            letter-spacing: 1px;
+        }
 
-.login-box p {
-    color: #8995aa;
+        .status-line {
+            display: inline-flex;
 
-    margin-bottom: 25px;
-}
+            align-items: center;
 
+            gap: 7px;
 
-/* ================================
-   INPUT
-   ================================ */
+            margin-top: 10px;
 
-.form-control {
-    width: 100%;
+            color: #20d99b;
 
-    border-radius: 13px;
+            font-size: 11px;
+        }
 
-    padding: 12px 16px;
+        .status-dot {
+            width: 7px;
+            height: 7px;
 
-    min-height: 48px;
+            border-radius: 50%;
 
-    border: 1px solid rgba(148, 163, 184, 0.15);
+            background: #20d99b;
 
-    background:
-        rgba(15, 23, 42, 0.75);
+            box-shadow:
+                0 0 12px #20d99b;
+        }
 
-    color: white;
 
-    transition: 0.25s ease;
-}
+        /* =====================================================
+           RIGHT PANEL
+           ===================================================== */
 
-.form-control::placeholder {
-    color: #66738a;
-}
+        .right-panel {
+            width: 50%;
+            min-height: 100vh;
 
-.form-control:focus {
-    background:
-        rgba(15, 23, 42, 0.95);
+            display: flex;
 
-    color: white;
+            align-items: center;
+            justify-content: center;
 
-    border-color: #4f8cff;
+            padding: 35px;
 
-    box-shadow:
-        0 0 0 3px rgba(79, 140, 255, 0.10),
-        0 0 20px rgba(79, 140, 255, 0.08);
+            position: relative;
 
-    outline: none;
-}
+            overflow: hidden;
 
+            background:
+                radial-gradient(
+                    circle at 80% 15%,
+                    rgba(124, 92, 232, 0.12),
+                    transparent 35%
+                ),
+                linear-gradient(
+                    135deg,
+                    #111a2b,
+                    #090f1d
+                );
+        }
 
-/* ================================
-   LOGIN BUTTON
-   ================================ */
 
-.btn-login {
-    width: 100%;
+        .right-panel::before {
+            content: "";
 
-    min-height: 48px;
+            position: absolute;
 
-    border-radius: 13px;
+            width: 300px;
+            height: 300px;
 
-    border: none;
+            border-radius: 50%;
 
-    background:
-        linear-gradient(
-            135deg,
-            #4f8cff,
-            #7c5ce8
-        );
+            background: rgba(79, 140, 255, 0.07);
 
-    color: white;
+            filter: blur(80px);
 
-    font-weight: 600;
+            top: -120px;
+            right: -100px;
+        }
 
-    transition: 0.3s ease;
 
-    position: relative;
+        /* =====================================================
+           LOGIN BOX
+           ===================================================== */
 
-    overflow: hidden;
+        .login-box {
+            position: relative;
 
-    box-shadow:
-        0 8px 25px rgba(79, 140, 255, 0.18);
-}
+            z-index: 5;
 
+            width: 100%;
 
-/* Button shine */
+            max-width: 410px;
 
-.btn-login::before {
-    content: "";
+            padding: 40px 38px;
 
-    position: absolute;
+            border-radius: 24px;
 
-    top: 0;
-    left: -100%;
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(24, 34, 53, 0.92),
+                    rgba(14, 22, 38, 0.94)
+                );
 
-    width: 60%;
-    height: 100%;
+            border: 1px solid rgba(148, 163, 184, 0.14);
 
-    background:
-        linear-gradient(
-            90deg,
-            transparent,
-            rgba(255,255,255,0.25),
-            transparent
-        );
+            box-shadow:
+                0 30px 80px rgba(0, 0, 0, 0.45),
+                inset 0 1px 0 rgba(255,255,255,0.03);
 
-    transform: skewX(-20deg);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
 
-    transition: 0.6s;
-}
+            animation: loginAppear 0.7s ease;
+        }
 
-.btn-login:hover::before {
-    left: 130%;
-}
 
-.btn-login:hover {
-    color: white;
+        /* top gradient */
 
-    transform: translateY(-2px);
+        .login-box::before {
+            content: "";
 
-    box-shadow:
-        0 12px 30px rgba(79, 140, 255, 0.30);
-}
+            position: absolute;
 
-.btn-login:active {
-    transform: scale(0.98);
-}
+            top: 0;
+            left: 12%;
 
+            width: 76%;
+            height: 2px;
 
-/* ================================
-   TOGGLE
-   ================================ */
+            background:
+                linear-gradient(
+                    90deg,
+                    transparent,
+                    #4f8cff,
+                    #7c5ce8,
+                    transparent
+                );
 
-.toggle {
-    font-size: 13px;
+            border-radius: 20px;
+        }
 
-    color: #7f8ba0;
 
-    margin-top: 8px;
-}
+        /* =====================================================
+           LOGIN HEADER
+           ===================================================== */
 
-.toggle span {
-    cursor: pointer;
+        .login-header {
+            margin-bottom: 25px;
+        }
 
-    color: #72a7ff;
+        .login-icon {
+            width: 48px;
+            height: 48px;
 
-    text-decoration: none;
+            margin-bottom: 18px;
 
-    font-weight: 600;
+            display: flex;
+            align-items: center;
+            justify-content: center;
 
-    transition: 0.2s ease;
-}
+            border-radius: 14px;
 
-.toggle span:hover {
-    color: #a78bfa;
+            font-size: 22px;
 
-    text-shadow:
-        0 0 10px rgba(139, 92, 246, 0.4);
-}
+            background:
+                linear-gradient(
+                    135deg,
+                    #4f8cff,
+                    #7c5ce8
+                );
 
+            box-shadow:
+                0 12px 30px rgba(79, 140, 255, 0.22);
+        }
 
-/* ================================
-   ANIMATIONS
-   ================================ */
+        .login-box h3 {
+            margin: 0 0 7px;
 
-@keyframes doctorFloat {
+            font-size: 27px;
 
-    0%,
-    100% {
-        transform: translateY(0);
-    }
+            font-weight: 700;
 
-    50% {
-        transform: translateY(-12px);
-    }
-}
+            color: #ffffff;
+        }
 
-@keyframes glowMove {
+        .login-box .subtitle {
+            margin: 0;
 
-    0%,
-    100% {
-        transform: translate(0, 0);
-    }
+            font-size: 13px;
 
-    50% {
-        transform: translate(40px, -30px);
-    }
-}
+            color: #8390a7;
+        }
 
-@keyframes glowMove2 {
 
-    0%,
-    100% {
-        transform: translate(0, 0);
-    }
+        /* =====================================================
+           INPUTS
+           ===================================================== */
 
-    50% {
-        transform: translate(-30px, 30px);
-    }
-}
+        .input-group-custom {
+            position: relative;
 
-@keyframes boxAppear {
+            margin-bottom: 14px;
+        }
 
-    from {
-        opacity: 0;
-        transform: translateY(25px) scale(0.97);
-    }
+        .input-icon {
+            position: absolute;
 
-    to {
-        opacity: 1;
-        transform: translateY(0) scale(1);
-    }
-}
+            left: 16px;
+            top: 50%;
 
+            transform: translateY(-50%);
 
-/* ==================================================
-   TABLET
-   ================================================== */
+            color: #64748b;
 
-@media (max-width: 900px) {
+            font-size: 14px;
 
-    .auth-container {
-        min-height: 100dvh;
-    }
+            z-index: 2;
+        }
 
-    .left-panel {
-        width: 42%;
-    }
+        .form-control {
+            width: 100%;
 
-    .right-panel {
-        width: 58%;
+            height: 50px;
 
-        padding: 25px;
-    }
+            padding: 12px 15px 12px 43px;
 
-    .left-panel img {
-        width: 70%;
-    }
+            border-radius: 13px;
 
-    .login-box {
-        max-width: 360px;
+            border: 1px solid rgba(148, 163, 184, 0.14);
 
-        padding: 32px 28px;
-    }
-}
+            background: rgba(15, 23, 42, 0.82);
 
+            color: #ffffff;
 
-/* ==================================================
-   MOBILE
-   ================================================== */
+            font-size: 13px;
 
-@media (max-width: 650px) {
+            outline: none;
 
-    html,
-    body {
-        width: 100%;
+            transition: all 0.25s ease;
+        }
 
-        min-height: 100dvh;
+        .form-control::placeholder {
+            color: #617089;
+        }
 
-        overflow-x: hidden;
-    }
+        .form-control:focus {
+            color: #ffffff;
 
-    .auth-container {
-        width: 100%;
+            background: rgba(15, 23, 42, 0.98);
 
-        min-height: 100dvh;
+            border-color: #4f8cff;
 
-        display: flex;
+            box-shadow:
+                0 0 0 3px rgba(79, 140, 255, 0.09),
+                0 8px 25px rgba(0, 0, 0, 0.15);
+        }
 
-        flex-direction: column;
-    }
 
+        /* =====================================================
+           LOGIN BUTTON
+           ===================================================== */
 
-    /* Hide image on phone */
+        .btn-login {
+            width: 100%;
 
-    .left-panel {
-        display: none;
-    }
+            height: 50px;
 
+            margin-top: 5px;
 
-    /* Full width login */
+            border: none;
 
-    .right-panel {
-        width: 100%;
+            border-radius: 13px;
 
-        min-height: 100dvh;
+            background:
+                linear-gradient(
+                    135deg,
+                    #4f8cff,
+                    #7c5ce8
+                );
 
-        padding: 20px 16px;
+            color: #ffffff;
 
-        display: flex;
+            font-size: 13px;
 
-        align-items: center;
+            font-weight: 700;
 
-        justify-content: center;
-    }
+            position: relative;
 
+            overflow: hidden;
 
-    .login-box {
-        width: 100%;
+            cursor: pointer;
 
-        max-width: 420px;
+            box-shadow:
+                0 10px 30px rgba(79, 140, 255, 0.20);
 
-        padding: 30px 22px;
+            transition:
+                transform 0.25s ease,
+                box-shadow 0.25s ease;
+        }
 
-        border-radius: 20px;
-    }
+        .btn-login::before {
+            content: "";
 
+            position: absolute;
 
-    .login-box h3 {
-        font-size: 23px;
-    }
+            top: 0;
+            left: -120%;
 
+            width: 70%;
+            height: 100%;
 
-    .login-box p {
-        font-size: 13px !important;
+            background:
+                linear-gradient(
+                    90deg,
+                    transparent,
+                    rgba(255,255,255,0.25),
+                    transparent
+                );
 
-        margin-bottom: 20px;
-    }
+            transform: skewX(-20deg);
 
+            transition: 0.6s ease;
+        }
 
-    .form-control {
-        min-height: 47px;
+        .btn-login:hover::before {
+            left: 140%;
+        }
 
-        font-size: 14px;
-    }
+        .btn-login:hover {
+            transform: translateY(-2px);
 
+            box-shadow:
+                0 15px 35px rgba(79, 140, 255, 0.30);
 
-    .btn-login {
-        min-height: 47px;
+            color: white;
+        }
 
-        font-size: 14px;
-    }
+        .btn-login:active {
+            transform: scale(0.98);
+        }
 
 
-    .toggle {
-        font-size: 12px;
-    }
-}
+        /* =====================================================
+           TOGGLE
+           ===================================================== */
 
+        .toggle {
+            margin-top: 20px;
 
-/* ==================================================
-   SMALL PHONES
-   ================================================== */
+            font-size: 11px;
 
-@media (max-width: 400px) {
+            color: #77849a;
+        }
 
-    .right-panel {
-        padding: 14px;
-    }
+        .toggle span {
+            cursor: pointer;
 
-    .login-box {
-        padding: 25px 18px;
+            color: #70a5ff;
 
-        border-radius: 18px;
-    }
+            font-weight: 600;
 
-    .login-box h3 {
-        font-size: 21px;
-    }
+            transition: 0.2s ease;
+        }
 
-    .form-control {
-        min-height: 44px;
+        .toggle span:hover {
+            color: #a78bfa;
+        }
 
-        padding: 10px 13px;
 
-        font-size: 13px;
-    }
+        /* =====================================================
+           SECURITY TEXT
+           ===================================================== */
 
-    .btn-login {
-        min-height: 44px;
+        .security-note {
+            margin-top: 22px;
 
-        font-size: 13px;
-    }
+            padding-top: 16px;
 
-    .toggle {
-        font-size: 11px;
-    }
-}
+            border-top: 1px solid rgba(148, 163, 184, 0.08);
 
+            text-align: center;
 
-/* ==================================================
-   VERY SMALL PHONES
-   ================================================== */
+            color: #59677e;
 
-@media (max-width: 340px) {
+            font-size: 9px;
+        }
 
-    .right-panel {
-        padding: 10px;
-    }
 
-    .login-box {
-        padding: 22px 15px;
-    }
+        /* =====================================================
+           ANIMATIONS
+           ===================================================== */
 
-    .login-box h3 {
-        font-size: 19px;
-    }
+        @keyframes doctorFloat {
 
-    .form-control {
-        min-height: 42px;
-    }
+            0%,
+            100% {
+                transform: translateY(0);
+            }
 
-    .btn-login {
-        min-height: 42px;
-    }
-}
+            50% {
+                transform: translateY(-12px);
+            }
+        }
 
+        @keyframes glowOne {
 
-/* ==================================================
-   TOUCH DEVICES
-   ================================================== */
+            0%,
+            100% {
+                transform: translate(0, 0);
+            }
 
-@media (hover: none) and (pointer: coarse) {
+            50% {
+                transform: translate(35px, -25px);
+            }
+        }
 
-    .btn-login:hover {
-        transform: none;
-    }
+        @keyframes glowTwo {
 
-    .left-panel img:hover {
-        transform: none;
-    }
-}
-</style>
+            0%,
+            100% {
+                transform: translate(0, 0);
+            }
+
+            50% {
+                transform: translate(-25px, 25px);
+            }
+        }
+
+        @keyframes loginAppear {
+
+            from {
+                opacity: 0;
+
+                transform:
+                    translateY(25px)
+                    scale(0.97);
+            }
+
+            to {
+                opacity: 1;
+
+                transform:
+                    translateY(0)
+                    scale(1);
+            }
+        }
+
+
+        /* =====================================================
+           TABLET
+           ===================================================== */
+
+        @media (max-width: 900px) {
+
+            .left-panel {
+                width: 45%;
+            }
+
+            .right-panel {
+                width: 55%;
+
+                padding: 25px;
+            }
+
+            .left-panel img {
+                width: 75%;
+            }
+
+            .doctor-caption h2 {
+                font-size: 21px;
+            }
+
+            .login-box {
+                padding: 32px 28px;
+            }
+        }
+
+
+        /* =====================================================
+           MOBILE
+           IMPORTANT:
+           DOCTOR IMAGE IS NOT HIDDEN
+           ===================================================== */
+
+        @media (max-width: 650px) {
+
+            html,
+            body {
+                width: 100%;
+                min-height: 100dvh;
+
+                overflow-x: hidden;
+            }
+
+            .auth-container {
+                width: 100%;
+
+                min-height: 100dvh;
+
+                display: flex;
+
+                flex-direction: column;
+
+                background:
+                    radial-gradient(
+                        circle at 50% 15%,
+                        rgba(79, 140, 255, 0.13),
+                        transparent 35%
+                    ),
+                    #070c18;
+            }
+
+
+            /* =============================================
+               MOBILE DOCTOR AREA
+               ============================================= */
+
+            .left-panel {
+                width: 100%;
+
+                height: 38dvh;
+
+                min-height: 255px;
+                max-height: 330px;
+
+                flex-shrink: 0;
+
+                border-right: none;
+
+                border-bottom:
+                    1px solid rgba(148, 163, 184, 0.10);
+
+                justify-content: center;
+
+                padding-top: 35px;
+            }
+
+
+            .brand-box {
+                top: 15px;
+                left: 18px;
+
+                gap: 9px;
+            }
+
+            .brand-icon {
+                width: 34px;
+                height: 34px;
+
+                border-radius: 10px;
+
+                font-size: 16px;
+            }
+
+            .brand-name {
+                font-size: 15px;
+            }
+
+            .brand-sub {
+                font-size: 7px;
+
+                letter-spacing: 1px;
+            }
+
+
+            .doctor-wrap {
+                height: 100%;
+            }
+
+
+            .doctor-glow {
+                width: 230px;
+                height: 230px;
+            }
+
+
+            .left-panel img {
+                width: min(70%, 250px);
+
+                max-width: 250px;
+
+                max-height: 220px;
+
+                object-fit: contain;
+            }
+
+
+            .doctor-caption {
+                bottom: 13px;
+            }
+
+            .doctor-caption h2 {
+                font-size: 17px;
+
+                margin-bottom: 2px;
+            }
+
+            .doctor-caption p {
+                font-size: 8px;
+
+                letter-spacing: 0.8px;
+            }
+
+            .status-line {
+                margin-top: 4px;
+
+                font-size: 8px;
+            }
+
+            .status-dot {
+                width: 5px;
+                height: 5px;
+            }
+
+
+            /* =============================================
+               MOBILE LOGIN
+               ============================================= */
+
+            .right-panel {
+                width: 100%;
+
+                min-height: 62dvh;
+
+                flex: 1;
+
+                padding: 18px 14px;
+
+                align-items: flex-start;
+
+                justify-content: center;
+
+                overflow-y: auto;
+            }
+
+
+            .login-box {
+                width: 100%;
+
+                max-width: 430px;
+
+                padding: 25px 20px;
+
+                border-radius: 20px;
+
+                margin: auto 0;
+            }
+
+
+            .login-icon {
+                width: 42px;
+                height: 42px;
+
+                margin-bottom: 13px;
+
+                border-radius: 12px;
+
+                font-size: 19px;
+            }
+
+
+            .login-box h3 {
+                font-size: 22px;
+
+                margin-bottom: 5px;
+            }
+
+            .login-box .subtitle {
+                font-size: 11px;
+
+                margin-bottom: 20px;
+            }
+
+
+            .form-control {
+                height: 46px;
+
+                min-height: 46px;
+
+                font-size: 12px;
+
+                padding-left: 40px;
+
+                border-radius: 11px;
+            }
+
+
+            .input-icon {
+                left: 14px;
+
+                font-size: 12px;
+            }
+
+
+            .btn-login {
+                height: 46px;
+
+                min-height: 46px;
+
+                font-size: 12px;
+
+                border-radius: 11px;
+            }
+
+
+            .toggle {
+                margin-top: 15px;
+
+                font-size: 10px;
+            }
+
+
+            .security-note {
+                margin-top: 15px;
+
+                padding-top: 11px;
+
+                font-size: 7px;
+            }
+        }
+
+
+        /* =====================================================
+           SMALL PHONES
+           ===================================================== */
+
+        @media (max-width: 390px) {
+
+            .left-panel {
+                height: 36dvh;
+
+                min-height: 235px;
+
+                max-height: 290px;
+            }
+
+            .left-panel img {
+                width: min(68%, 220px);
+
+                max-height: 185px;
+            }
+
+            .doctor-caption {
+                bottom: 9px;
+            }
+
+            .doctor-caption h2 {
+                font-size: 15px;
+            }
+
+            .doctor-caption p {
+                font-size: 7px;
+            }
+
+            .right-panel {
+                min-height: 64dvh;
+
+                padding: 12px 12px;
+            }
+
+            .login-box {
+                padding: 22px 17px;
+
+                border-radius: 18px;
+            }
+
+            .login-icon {
+                width: 38px;
+                height: 38px;
+
+                margin-bottom: 10px;
+            }
+
+            .login-box h3 {
+                font-size: 20px;
+            }
+
+            .login-box .subtitle {
+                font-size: 10px;
+
+                margin-bottom: 16px;
+            }
+
+            .form-control {
+                height: 43px;
+
+                min-height: 43px;
+
+                font-size: 11px;
+            }
+
+            .btn-login {
+                height: 43px;
+
+                min-height: 43px;
+
+                font-size: 11px;
+            }
+
+            .toggle {
+                font-size: 9px;
+            }
+
+            .security-note {
+                font-size: 6.5px;
+            }
+        }
+
+
+        /* =====================================================
+           VERY SMALL PHONES
+           ===================================================== */
+
+        @media (max-width: 340px) {
+
+            .left-panel {
+                height: 34dvh;
+
+                min-height: 220px;
+            }
+
+            .left-panel img {
+                width: 62%;
+
+                max-height: 165px;
+            }
+
+            .brand-box {
+                top: 11px;
+                left: 13px;
+            }
+
+            .brand-icon {
+                width: 30px;
+                height: 30px;
+
+                font-size: 14px;
+            }
+
+            .brand-name {
+                font-size: 13px;
+            }
+
+            .brand-sub {
+                font-size: 6px;
+            }
+
+            .doctor-caption h2 {
+                font-size: 14px;
+            }
+
+            .right-panel {
+                padding: 10px;
+            }
+
+            .login-box {
+                padding: 19px 14px;
+            }
+
+            .login-box h3 {
+                font-size: 19px;
+            }
+
+            .form-control {
+                height: 41px;
+                min-height: 41px;
+            }
+
+            .btn-login {
+                height: 41px;
+                min-height: 41px;
+            }
+        }
+
+
+        /* =====================================================
+           TOUCH DEVICES
+           ===================================================== */
+
+        @media (hover: none) and (pointer: coarse) {
+
+            .left-panel img:hover {
+                transform: none;
+            }
+
+            .btn-login:hover {
+                transform: none;
+            }
+        }
+
+    </style>
 </head>
+
 
 <body>
 
 <div class="auth-container">
 
-<!-- LEFT SIDE IMAGE -->
 
-<div class="left-panel">
+    <!-- =====================================================
+         LEFT / DOCTOR
+         ===================================================== -->
 
-<img src="https://cdn-icons-png.flaticon.com/512/2785/2785482.png">
+    <div class="left-panel">
+
+
+        <!-- BRAND -->
+
+        <div class="brand-box">
+
+            <div class="brand-icon">
+                ♥
+            </div>
+
+            <div>
+                <div class="brand-name">
+                    Dr. AI
+                </div>
+
+                <div class="brand-sub">
+                    Medical Intelligence
+                </div>
+            </div>
+
+        </div>
+
+
+        <!-- DOCTOR -->
+
+        <div class="doctor-wrap">
+
+            <div class="doctor-glow"></div>
+
+            <img
+                src="https://cdn-icons-png.flaticon.com/512/2785/2785482.png"
+                alt="Dr AI Medical Assistant">
+
+        </div>
+
+
+        <!-- CAPTION -->
+
+        <div class="doctor-caption">
+
+            <h2>
+                Intelligent Healthcare
+            </h2>
+
+            <p>
+                AI-powered medical assistance
+            </p>
+
+            <div class="status-line">
+
+                <span class="status-dot"></span>
+
+                Medical Intelligence Active
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =====================================================
+         RIGHT / LOGIN
+         ===================================================== -->
+
+    <div class="right-panel">
+
+
+        <div class="login-box">
+
+
+            <!-- LOGIN HEADER -->
+
+            <div class="login-header">
+
+                <div class="login-icon">
+                    ♥
+                </div>
+
+                <h3>
+                    Welcome Back!
+                </h3>
+
+                <p class="subtitle">
+                    Login to your Dr. AI account
+                </p>
+
+            </div>
+
+
+
+            <!-- LOGIN FORM -->
+
+            <form id="loginForm">
+
+
+                <div class="input-group-custom">
+
+                    <span class="input-icon">
+                        ✉
+                    </span>
+
+                    <input
+                        type="email"
+                        class="form-control"
+                        placeholder="Email Address"
+                        autocomplete="email"
+                        required>
+
+                </div>
+
+
+                <div class="input-group-custom">
+
+                    <span class="input-icon">
+                        🔒
+                    </span>
+
+                    <input
+                        type="password"
+                        class="form-control"
+                        placeholder="Password"
+                        autocomplete="current-password"
+                        required>
+
+                </div>
+
+
+                <button
+                    type="submit"
+                    class="btn btn-login">
+
+                    Login to Dr. AI
+
+                </button>
+
+            </form>
+
+
+
+            <!-- SIGNUP FORM -->
+
+            <form
+                id="signupForm"
+                style="display:none;">
+
+
+                <div class="input-group-custom">
+
+                    <span class="input-icon">
+                        👤
+                    </span>
+
+                    <input
+                        type="text"
+                        class="form-control"
+                        placeholder="Full Name"
+                        required>
+
+                </div>
+
+
+                <div class="input-group-custom">
+
+                    <span class="input-icon">
+                        ✉
+                    </span>
+
+                    <input
+                        type="email"
+                        class="form-control"
+                        placeholder="Email Address"
+                        required>
+
+                </div>
+
+
+                <div class="input-group-custom">
+
+                    <span class="input-icon">
+                        🔒
+                    </span>
+
+                    <input
+                        type="password"
+                        class="form-control"
+                        placeholder="Password"
+                        required>
+
+                </div>
+
+
+                <button
+                    type="submit"
+                    class="btn btn-login">
+
+                    Create Account
+
+                </button>
+
+            </form>
+
+
+
+            <!-- TOGGLE -->
+
+            <div class="toggle text-center">
+
+                <span id="toggleText">
+                    Don't have an account?
+                </span>
+
+                &nbsp;
+
+                <span
+                    onclick="toggleForm()"
+                    id="toggleBtn">
+
+                    Sign Up
+
+                </span>
+
+            </div>
+
+
+
+            <!-- SECURITY -->
+
+            <div class="security-note">
+
+                🔒 Your information is kept secure.
+                Dr. AI is not a substitute for professional medical advice.
+
+            </div>
+
+        </div>
+
+    </div>
 
 </div>
 
-
-<!-- RIGHT SIDE LOGIN -->
-
-<div class="right-panel">
-
-<div class="login-box">
-
-<h3>Welcome Back!</h3>
-<p style="font-size:14px">Login Your Account</p>
-
-<!-- LOGIN FORM -->
-
-<form id="loginForm">
-
-<input type="email" class="form-control mb-3" placeholder="Email Address" required>
-
-<input type="password" class="form-control mb-3" placeholder="Password" required>
-
-<button class="btn btn-login mb-3">Login</button>
-
-</form>
-
-
-<!-- SIGNUP FORM -->
-
-<form id="signupForm" style="display:none;">
-
-<input type="text" class="form-control mb-3" placeholder="Full Name" required>
-
-<input type="email" class="form-control mb-3" placeholder="Email Address" required>
-
-<input type="password" class="form-control mb-3" placeholder="Password" required>
-
-<button class="btn btn-login mb-3">Sign Up</button>
-
-</form>
-
-
-<div class="toggle text-center">
-
-<span id="toggleText">Don't have an account?</span>
-
-<span onclick="toggleForm()" id="toggleBtn">Sign Up</span>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
 
 
 <script>
 
-let loginForm=document.getElementById("loginForm")
-let signupForm=document.getElementById("signupForm")
-let toggleText=document.getElementById("toggleText")
-let toggleBtn=document.getElementById("toggleBtn")
+    let loginForm =
+        document.getElementById("loginForm");
 
-function toggleForm(){
+    let signupForm =
+        document.getElementById("signupForm");
 
-if(loginForm.style.display==="none"){
+    let toggleText =
+        document.getElementById("toggleText");
 
-loginForm.style.display="block"
-signupForm.style.display="none"
+    let toggleBtn =
+        document.getElementById("toggleBtn");
 
-toggleText.innerHTML="Don't have an account?"
-toggleBtn.innerHTML="Sign Up"
 
-}
+    function toggleForm() {
 
-else{
+        if (loginForm.style.display === "none") {
 
-loginForm.style.display="none"
-signupForm.style.display="block"
+            loginForm.style.display = "block";
 
-toggleText.innerHTML="Already have an account?"
-toggleBtn.innerHTML="Login"
+            signupForm.style.display = "none";
 
-}
+            toggleText.innerHTML =
+                "Don't have an account?";
 
-}
+            toggleBtn.innerHTML =
+                "Sign Up";
 
-loginForm.addEventListener("submit", function(e) {
-    e.preventDefault();
-    window.location.href = "/dr_ai_chat";
-});
+        } else {
+
+            loginForm.style.display = "none";
+
+            signupForm.style.display = "block";
+
+            toggleText.innerHTML =
+                "Already have an account?";
+
+            toggleBtn.innerHTML =
+                "Login";
+        }
+    }
+
+
+    /* LOGIN → DR AI CHAT */
+
+    loginForm.addEventListener(
+        "submit",
+        function(e) {
+
+            e.preventDefault();
+
+            window.location.href =
+                "/dr_ai_chat";
+        }
+    );
+
 </script>
 
 </body>
